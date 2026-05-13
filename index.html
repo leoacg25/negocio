@@ -154,7 +154,32 @@
 
                     <!-- Chart Area -->
                     <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 lg:col-span-2 flex flex-col h-96">
-                        <h3 class="text-lg font-semibold text-slate-800 mb-4">Ventas Recientes (Últimos 7 días)</h3>
+                        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                            <div class="flex items-center gap-3">
+                                <h3 class="text-lg font-semibold text-slate-800" id="dash-chart-title">Ventas Semanales</h3>
+                                <div class="flex bg-slate-100 rounded-lg p-0.5 text-sm">
+                                    <button id="period-week" class="px-3 py-1.5 rounded-md font-medium transition-colors bg-white text-slate-800 shadow-sm" onclick="setChartPeriod('week')">Semanal</button>
+                                    <button id="period-month" class="px-3 py-1.5 rounded-md font-medium transition-colors text-slate-500 hover:text-slate-800" onclick="setChartPeriod('month')">Mensual</button>
+                                </div>
+                            </div>
+                            <div class="flex gap-2" id="dash-month-controls" style="display:none">
+                                <select id="dash-month" class="border border-slate-300 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm">
+                                    <option value="0">Enero</option>
+                                    <option value="1">Febrero</option>
+                                    <option value="2">Marzo</option>
+                                    <option value="3">Abril</option>
+                                    <option value="4">Mayo</option>
+                                    <option value="5">Junio</option>
+                                    <option value="6">Julio</option>
+                                    <option value="7">Agosto</option>
+                                    <option value="8">Septiembre</option>
+                                    <option value="9">Octubre</option>
+                                    <option value="10">Noviembre</option>
+                                    <option value="11">Diciembre</option>
+                                </select>
+                                <input type="number" id="dash-year" value="2026" class="border border-slate-300 rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm w-20 text-center">
+                            </div>
+                        </div>
                         <div class="flex-1 relative w-full">
                             <canvas id="salesChart"></canvas>
                         </div>
@@ -185,9 +210,14 @@
 
                 <div class="bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col flex-1 min-h-[400px]">
                     <div class="p-4 border-b border-slate-100 flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50/50 rounded-t-xl shrink-0">
-                        <div class="relative w-full sm:w-96">
-                            <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
-                            <input type="text" id="search-inventory" placeholder="Buscar producto..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow bg-white">
+                        <div class="flex gap-3 w-full sm:w-auto items-center">
+                            <div class="relative w-full sm:w-64">
+                                <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" id="search-inventory" placeholder="Buscar producto..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow bg-white">
+                            </div>
+                            <select id="filter-category" class="border border-slate-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm">
+                                <option value="">Todas las categorías</option>
+                            </select>
                         </div>
                         <div class="text-sm text-slate-500">
                             Mostrando <span id="inventory-count" class="font-medium text-slate-800">0</span> productos
@@ -215,6 +245,19 @@
                             <i class="fa-solid fa-box-open text-4xl mb-3 text-slate-300"></i>
                             <p class="text-lg font-medium text-slate-600">No hay productos</p>
                             <p class="text-sm mt-1">Añade tu primer producto para empezar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="inv-footer" class="hidden border-t-2 border-slate-200 bg-slate-50 px-4 py-3 shrink-0 rounded-b-xl">
+                    <div class="flex justify-between md:justify-end items-center gap-6 md:gap-10 md:pr-16 md:min-w-[800px]">
+                        <div class="md:hidden text-sm font-semibold text-slate-700">Valorización</div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-500 block">Valor Total</span>
+                            <span class="text-base font-bold text-[#B191C1]" id="inv-total-value">$0.00</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-500 block">Unidades</span>
+                            <span class="text-base font-bold text-slate-800" id="inv-total-stock">0</span>
                         </div>
                     </div>
                 </div>
@@ -479,6 +522,7 @@
         let products = JSON.parse(localStorage.getItem('stockflow_products')) || initialProducts;
         let sales = JSON.parse(localStorage.getItem('stockflow_sales')) || [];
         let cart = [];
+        let chartPeriod = 'week'; // 'week' | 'month'
         let salesChartInstance = null;
         let currentSaleData = null; // Guardar la venta actual para poder compartirla
 
@@ -570,7 +614,7 @@
 
             // Llamar funciones de renderizado específicas según la tab
             if (tabId === 'dashboard') renderDashboard();
-            if (tabId === 'inventory') renderInventory();
+            if (tabId === 'inventory') renderInventory(document.getElementById('search-inventory').value, document.getElementById('filter-category').value);
             if (tabId === 'sales') {
                 renderPOSProducts();
                 renderCart();
@@ -662,34 +706,58 @@
             renderChart();
         }
 
+        function setChartPeriod(period) {
+            chartPeriod = period;
+            document.getElementById('period-week').className = 'px-3 py-1.5 rounded-md font-medium transition-colors' + (period === 'week' ? ' bg-white text-slate-800 shadow-sm' : ' text-slate-500 hover:text-slate-800');
+            document.getElementById('period-month').className = 'px-3 py-1.5 rounded-md font-medium transition-colors' + (period === 'month' ? ' bg-white text-slate-800 shadow-sm' : ' text-slate-500 hover:text-slate-800');
+            document.getElementById('dash-month-controls').style.display = period === 'month' ? '' : 'none';
+            document.getElementById('dash-chart-title').textContent = period === 'week' ? 'Ventas Semanales' : 'Ventas del Mes';
+            renderChart();
+        }
+
         function renderChart() {
             const ctx = document.getElementById('salesChart').getContext('2d');
-            
-            // Generar array de últimos 7 días
-            const labels = [];
-            const data = [];
-            const today = new Date();
-            today.setHours(0,0,0,0);
 
-            for (let i = 6; i >= 0; i--) {
-                const d = new Date(today);
-                d.setDate(d.getDate() - i);
-                labels.push(d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' }));
-                
-                // Sumar ventas de ese día
-                const daySales = sales.filter(s => {
-                    const saleDate = new Date(s.date);
-                    saleDate.setHours(0,0,0,0);
-                    return saleDate.getTime() === d.getTime();
-                }).reduce((sum, s) => sum + s.total, 0);
-                
-                data.push(daySales);
+            let labels, data;
+
+            if (chartPeriod === 'week') {
+                const today = new Date();
+                today.setHours(0,0,0,0);
+                labels = [];
+                data = [];
+
+                for (let i = 6; i >= 0; i--) {
+                    const d = new Date(today);
+                    d.setDate(d.getDate() - i);
+                    labels.push(d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' }));
+
+                    const daySales = sales.filter(s => {
+                        const saleDate = new Date(s.date);
+                        saleDate.setHours(0,0,0,0);
+                        return saleDate.getTime() === d.getTime();
+                    }).reduce((sum, s) => sum + s.total, 0);
+
+                    data.push(daySales);
+                }
+            } else {
+                const month = parseInt(document.getElementById('dash-month').value);
+                const year = parseInt(document.getElementById('dash-year').value) || new Date().getFullYear();
+                const lastDay = new Date(year, month + 1, 0).getDate();
+                labels = [];
+                data = [];
+
+                for (let d = 1; d <= lastDay; d++) {
+                    const date = new Date(year, month, d);
+                    labels.push(date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' }));
+                    const daySales = sales.filter(s => {
+                        const saleDate = new Date(s.date);
+                        return saleDate.getFullYear() === year && saleDate.getMonth() === month && saleDate.getDate() === d;
+                    }).reduce((sum, s) => sum + s.total, 0);
+                    data.push(daySales);
+                }
             }
 
-            // Destruir gráfico anterior si existe
-            if (salesChartInstance) {
-                salesChartInstance.destroy();
-            }
+            if (salesChartInstance) salesChartInstance.destroy();
 
             // Crear nuevo gráfico
             salesChartInstance = new Chart(ctx, {
@@ -734,28 +802,38 @@
         }
 
         // --- STREAMING_CHUNK:Implementing Inventory Management ---
-        function renderInventory(searchTerm = '') {
+        function renderInventory(searchTerm = '', categoryFilter = '') {
             const tbody = document.getElementById('inventory-table-body');
             const emptyState = document.getElementById('inventory-empty-state');
             const countSpan = document.getElementById('inventory-count');
+            const catSelect = document.getElementById('filter-category');
             
             // Actualizar datalist de categorías
             const categories = [...new Set(products.map(p => p.category).filter(c => c))];
             const datalist = document.getElementById('categories-list');
             datalist.innerHTML = categories.map(c => `<option value="${c}">`).join('');
 
-            // Filtrar productos
+            // Poblar y mantener selección del dropdown de categorías
+            const currentCat = catSelect.value;
+            catSelect.innerHTML = '<option value="">Todas las categorías</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+            catSelect.value = currentCat || categoryFilter || '';
+
+            // Filtrar productos por texto y categoría
+            const term = searchTerm.toLowerCase();
+            const cat = catSelect.value;
             const filtered = products.filter(p => {
-                const term = searchTerm.toLowerCase();
-                return p.name.toLowerCase().includes(term) || 
-                       p.sku.toLowerCase().includes(term) || 
-                       (p.category && p.category.toLowerCase().includes(term));
+                const matchText = p.name.toLowerCase().includes(term) || 
+                                  p.sku.toLowerCase().includes(term) || 
+                                  (p.category && p.category.toLowerCase().includes(term));
+                const matchCat = !cat || p.category === cat;
+                return matchText && matchCat;
             });
 
             countSpan.textContent = filtered.length;
 
             if (filtered.length === 0) {
                 tbody.innerHTML = '';
+                document.getElementById('inv-footer').classList.add('hidden');
                 emptyState.classList.remove('hidden');
                 document.querySelector('#tab-inventory table').classList.add('hidden');
             } else {
@@ -798,12 +876,23 @@
                     `;
                 });
                 tbody.innerHTML = html;
+
+                // Calcular valorización y total de unidades
+                const totalValue = filtered.reduce((sum, p) => sum + (parseFloat(p.price) * parseInt(p.stock)), 0);
+                const totalUnits = filtered.reduce((sum, p) => sum + parseInt(p.stock), 0);
+                document.getElementById('inv-total-value').textContent = formatMoney(totalValue);
+                document.getElementById('inv-total-stock').textContent = totalUnits;
+                document.getElementById('inv-footer').classList.remove('hidden');
             }
         }
 
         // Búsqueda en inventario
         document.getElementById('search-inventory').addEventListener('input', (e) => {
-            renderInventory(e.target.value);
+            renderInventory(e.target.value, document.getElementById('filter-category').value);
+        });
+
+        document.getElementById('filter-category').addEventListener('change', (e) => {
+            renderInventory(document.getElementById('search-inventory').value, e.target.value);
         });
 
         // Formulario de Producto (Crear/Editar)
@@ -842,7 +931,7 @@
 
             saveData();
             closeModal('modal-add-product');
-            renderInventory(document.getElementById('search-inventory').value);
+            renderInventory(document.getElementById('search-inventory').value, document.getElementById('filter-category').value);
             // Actualizar dashboard si está activo en segundo plano
             renderDashboard();
         });
@@ -874,7 +963,7 @@
                 const name = products[index].name;
                 products.splice(index, 1);
                 saveData();
-                renderInventory(document.getElementById('search-inventory').value);
+                renderInventory(document.getElementById('search-inventory').value, document.getElementById('filter-category').value);
                 showToast(`Producto "${name}" eliminado`);
             }
         }
@@ -1447,7 +1536,7 @@
                     }
 
                     saveData();
-                    renderInventory(document.getElementById('search-inventory').value);
+                    renderInventory(document.getElementById('search-inventory').value, document.getElementById('filter-category').value);
                     renderDashboard();
                     showToast('Productos importados correctamente');
                 } catch (err) {
@@ -1461,7 +1550,15 @@
 
         // --- INICIALIZACIÓN ---
         window.onload = () => {
-            switchTab('dashboard'); // Iniciar en el dashboard
+            const now = new Date();
+            document.getElementById('dash-month').value = now.getMonth();
+            document.getElementById('dash-year').value = now.getFullYear();
+
+            document.getElementById('dash-month').addEventListener('change', renderChart);
+            document.getElementById('dash-year').addEventListener('change', renderChart);
+
+            setChartPeriod('week');
+            switchTab('dashboard');
         };
 
     </script>
