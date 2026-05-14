@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negocios.ve - Sistema de Inventario y Ventas</title>
+    <title>Bajushop.ve - Sistema de Inventario y Ventas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,9 +31,9 @@
     <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex shrink-0 shadow-xl z-20">
         <div class="p-6 border-b border-slate-700 flex items-center gap-3">
             <div class="bg-[#B191C1] text-white p-2 rounded-lg">
-                <i class="fa-solid fa-cart-shopping text-xl"></i>
+                <i class="fa-solid fa-box-open text-xl"></i>
             </div>
-            <h1 class="text-xl font-bold tracking-tight">Negocios.ve</h1>
+            <h1 class="text-xl font-bold tracking-tight">Bajushop.ve</h1>
         </div>
         <nav class="flex-1 p-4 space-y-2">
             <button onclick="switchTab('dashboard')" id="nav-dashboard" class="w-full flex items-center gap-3 px-4 py-3 text-left rounded-lg transition-colors bg-[#B191C1] text-white hover:bg-[#9D79AF]">
@@ -53,8 +53,17 @@
                 <span class="font-medium">Reportes</span>
             </button>
         </nav>
-        <div class="p-4 border-t border-slate-700 text-xs text-slate-400 text-center">
-            Datos guardados localmente
+        <div class="p-4 border-t border-slate-700">
+            <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400">Sincronización</span>
+                <button onclick="openModal('modal-settings')" class="text-slate-500 hover:text-white transition-colors p-1 rounded" title="Configuración GitHub">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                </button>
+            </div>
+            <button onclick="syncNow()" id="btn-sync" class="w-full text-xs px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors flex items-center justify-center gap-1.5 mb-1">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Sincronizar
+            </button>
+            <div id="sync-status" class="text-xs text-slate-500 text-center truncate">Local</div>
         </div>
     </aside>
 
@@ -506,6 +515,46 @@
         </div>
     </div>
 
+    <!-- Settings Modal -->
+    <div id="modal-settings" class="modal fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 transform scale-95">
+            <div class="flex justify-between items-center p-5 border-b border-slate-100">
+                <h3 class="text-xl font-bold text-slate-800">Configuración GitHub</h3>
+                <button onclick="closeModal('modal-settings')" class="text-slate-400 hover:text-slate-600 focus:outline-none">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-5 space-y-4">
+                <p class="text-sm text-slate-500">Configura para sincronizar tu inventario con un archivo JSON en tu repositorio de GitHub.</p>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Usuario / Organización</label>
+                    <input type="text" id="gh-owner" placeholder="ej: tunombre" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1]">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Repositorio</label>
+                    <input type="text" id="gh-repo" placeholder="ej: mirepositorio" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1]">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Token Personal (PAT)</label>
+                    <input type="password" id="gh-token" placeholder="ghp_..." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] font-mono text-xs">
+                    <p class="text-xs text-slate-500 mt-1">Crea un token en GitHub: Settings → Developer settings → Personal access tokens → Fine-grained tokens. Permiso: <strong>Contents</strong> (Read and write).</p>
+                </div>
+                <div id="gh-test-result" class="text-sm hidden"></div>
+            </div>
+            <div class="p-4 border-t border-slate-100 bg-slate-50 flex gap-3 rounded-b-xl">
+                <button onclick="closeModal('modal-settings')" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 py-2.5 rounded-lg font-medium transition-colors">
+                    Cancelar
+                </button>
+                <button onclick="testGitHubConfig()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-4 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-flask"></i> Probar
+                </button>
+                <button onclick="saveGitHubConfig()" class="flex-1 bg-[#B191C1] hover:bg-[#9D79AF] text-white py-2.5 rounded-lg font-bold transition-colors">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // --- STATE MANAGEMENT ---
         // Generar datos iniciales de prueba si el localStorage está vacío
@@ -545,9 +594,12 @@
             return new Date(dateString).toLocaleDateString('es-ES', options);
         }
 
+        let _skipSync = false;
+
         function saveData() {
             localStorage.setItem('stockflow_products', JSON.stringify(products));
             localStorage.setItem('stockflow_sales', JSON.stringify(sales));
+            if (!_skipSync) queueSync();
         }
 
         function showToast(message, type = 'success') {
@@ -587,6 +639,250 @@
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
+
+        // --- GITHUB SYNC ---
+        const GITHUB_CONFIG_KEY = 'bajushop_sync_config';
+        const SYNC_STATUS_KEY = 'bajushop_sync_status';
+
+        function getGitHubConfig() {
+            try { return JSON.parse(localStorage.getItem(GITHUB_CONFIG_KEY)) || null; }
+            catch { return null; }
+        }
+
+        function setGitHubConfig(config) {
+            localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(config));
+        }
+
+        function encodeBase64(str) {
+            const bytes = new TextEncoder().encode(str);
+            return btoa(String.fromCharCode(...bytes));
+        }
+
+        function decodeBase64(str) {
+            const bytes = new Uint8Array([...atob(str)].map(c => c.charCodeAt(0)));
+            return new TextDecoder().decode(bytes);
+        }
+
+        function updateSyncStatus() {
+            const el = document.getElementById('sync-status');
+            const config = getGitHubConfig();
+            if (!config || !config.token) {
+                el.textContent = 'Sin configurar';
+                el.className = 'text-xs text-slate-500 text-center truncate';
+                return;
+            }
+            const stored = localStorage.getItem(SYNC_STATUS_KEY);
+            if (!stored) {
+                el.textContent = 'Sin sincronizar';
+                el.className = 'text-xs text-amber-500 text-center truncate';
+                return;
+            }
+            const status = JSON.parse(stored);
+            if (status.success) {
+                const d = new Date(status.lastSync);
+                el.textContent = 'Última sinc: ' + d.toLocaleString('es-ES');
+                el.className = 'text-xs text-green-400 text-center truncate';
+            } else {
+                el.textContent = 'Error en sincronización';
+                el.className = 'text-xs text-red-400 text-center truncate';
+            }
+        }
+
+        async function loadFromGitHub() {
+            const config = getGitHubConfig();
+            if (!config || !config.owner || !config.repo || !config.token) return false;
+
+            try {
+                const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/inventario.json`;
+                const res = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${config.token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                if (!res.ok) return false;
+
+                const data = await res.json();
+                const content = decodeBase64(data.content);
+                const json = JSON.parse(content);
+
+                if (json.products && Array.isArray(json.products)) {
+                    products = json.products;
+                }
+                if (json.sales && Array.isArray(json.sales)) {
+                    sales = json.sales;
+                }
+                _skipSync = true;
+                saveData();
+                _skipSync = false;
+                updateSyncStatus();
+                return true;
+            } catch (e) {
+                console.warn('Error loading from GitHub:', e);
+                return false;
+            }
+        }
+
+        let _syncTimeout = null;
+
+        function queueSync() {
+            if (_syncTimeout) clearTimeout(_syncTimeout);
+            _syncTimeout = setTimeout(() => syncToGitHub(), 3000);
+        }
+
+        async function syncToGitHub() {
+            const config = getGitHubConfig();
+            if (!config || !config.owner || !config.repo || !config.token) return false;
+
+            const btn = document.getElementById('btn-sync');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sincronizando...';
+            btn.disabled = true;
+
+            try {
+                const payload = { products, sales };
+                const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/inventario.json`;
+
+                // Get file metadata (need sha for update)
+                let sha = null;
+                const getRes = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${config.token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                if (getRes.ok) {
+                    const existing = await getRes.json();
+                    sha = existing.sha;
+                }
+
+                // Create or update file
+                const body = {
+                    message: `Inventario sync ${new Date().toISOString().split('T')[0]}`,
+                    content: encodeBase64(JSON.stringify(payload, null, 2))
+                };
+                if (sha) body.sha = sha;
+
+                const putRes = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${config.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                if (!putRes.ok) {
+                    const err = await putRes.text();
+                    throw new Error(err);
+                }
+
+                localStorage.setItem(SYNC_STATUS_KEY, JSON.stringify({ lastSync: new Date().toISOString(), success: true }));
+                updateSyncStatus();
+                showToast('Datos sincronizados con GitHub', 'success');
+                return true;
+            } catch (e) {
+                localStorage.setItem(SYNC_STATUS_KEY, JSON.stringify({ lastSync: new Date().toISOString(), success: false, error: e.message }));
+                updateSyncStatus();
+                showToast('Error al sincronizar: ' + e.message, 'error');
+                return false;
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        async function syncNow() {
+            await syncToGitHub();
+        }
+
+        function loadSettingsForm() {
+            const config = getGitHubConfig();
+            if (config) {
+                document.getElementById('gh-owner').value = config.owner || '';
+                document.getElementById('gh-repo').value = config.repo || '';
+                document.getElementById('gh-token').value = config.token || '';
+            }
+        }
+
+        function saveGitHubConfig() {
+            const owner = document.getElementById('gh-owner').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+            const token = document.getElementById('gh-token').value.trim();
+
+            if (!owner || !repo || !token) {
+                showToast('Completa todos los campos', 'error');
+                return;
+            }
+
+            setGitHubConfig({ owner, repo, token });
+            updateSyncStatus();
+            closeModal('modal-settings');
+            showToast('Configuración guardada');
+            syncToGitHub();
+        }
+
+        async function testGitHubConfig() {
+            const owner = document.getElementById('gh-owner').value.trim();
+            const repo = document.getElementById('gh-repo').value.trim();
+            const token = document.getElementById('gh-token').value.trim();
+            const resultEl = document.getElementById('gh-test-result');
+
+            if (!owner || !repo || !token) {
+                resultEl.className = 'text-sm text-red-600';
+                resultEl.textContent = 'Completa todos los campos';
+                resultEl.classList.remove('hidden');
+                return;
+            }
+
+            resultEl.className = 'text-sm text-slate-600';
+            resultEl.textContent = 'Probando conexión...';
+            resultEl.classList.remove('hidden');
+
+            try {
+                const url = `https://api.github.com/repos/${owner}/${repo}/contents/inventario.json`;
+                const res = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                if (res.ok) {
+                    resultEl.className = 'text-sm text-green-600';
+                    resultEl.textContent = 'Conexión exitosa. El archivo existe en el repositorio.';
+                } else if (res.status === 404) {
+                    resultEl.className = 'text-sm text-amber-600';
+                    resultEl.textContent = 'Repositorio accesible. El archivo inventario.json se creará al sincronizar.';
+                } else if (res.status === 401 || res.status === 403) {
+                    const err = await res.json();
+                    resultEl.className = 'text-sm text-red-600';
+                    resultEl.textContent = 'Error de autenticación: ' + (err.message || 'Token inválido o sin permisos');
+                } else {
+                    resultEl.className = 'text-sm text-red-600';
+                    resultEl.textContent = 'Error ' + res.status + ': ' + res.statusText;
+                }
+            } catch (e) {
+                resultEl.className = 'text-sm text-red-600';
+                resultEl.textContent = 'Error de conexión: ' + e.message;
+            }
+        }
+
+        // Override openModal to load settings on settings modal open
+        const _origOpenModal = openModal;
+        openModal = function(id) {
+            if (id === 'modal-settings') loadSettingsForm();
+            _origOpenModal(id);
+        };
+
+        // Hook closeModal too for settings
+        const _origCloseModal = closeModal;
+        closeModal = function(id) {
+            _origCloseModal(id);
+            if (id === 'modal-settings') {
+                document.getElementById('gh-test-result').classList.add('hidden');
+            }
+        };
 
         // --- NAVIGATION & UI ---
         function switchTab(tabId) {
@@ -1549,7 +1845,15 @@
         }
 
         // --- INICIALIZACIÓN ---
-        window.onload = () => {
+        window.onload = async () => {
+            // Intentar cargar datos desde GitHub
+            updateSyncStatus();
+            const loaded = await loadFromGitHub();
+            if (loaded) {
+                renderDashboard();
+                renderInventory(document.getElementById('search-inventory').value, document.getElementById('filter-category').value);
+            }
+
             const now = new Date();
             document.getElementById('dash-month').value = now.getMonth();
             document.getElementById('dash-year').value = now.getFullYear();
