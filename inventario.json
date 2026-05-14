@@ -8,6 +8,15 @@
       "price": 10,
       "stock": 10,
       "minStock": 1
+    },
+    {
+      "id": "mp5y328yltj62wt2n3i",
+      "sku": "25152",
+      "name": "Pantalon",
+      "category": "Pantalones",
+      "price": 15,
+      "stock": 11,
+      "minStock": 1
     }
   ],
   "sales": [
