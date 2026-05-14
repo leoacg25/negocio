@@ -1,39 +1,4 @@
 {
-  "products": [
-    {
-      "id": "mp2tyla7gkr9onojq7v",
-      "sku": "12",
-      "name": "FRANELA CABALLERO",
-      "category": "franela",
-      "price": 10,
-      "stock": 10,
-      "minStock": 1
-    },
-    {
-      "id": "mp5y328yltj62wt2n3i",
-      "sku": "25152",
-      "name": "Pantalon",
-      "category": "Pantalones",
-      "price": 15,
-      "stock": 11,
-      "minStock": 1
-    }
-  ],
-  "sales": [
-    {
-      "id": "VNT-479770",
-      "date": "2026-05-11T15:47:59.770Z",
-      "items": [
-        {
-          "id": "mp1dlf9fbjwx4hu1827",
-          "sku": "12",
-          "name": "Franelas caballero, talla S",
-          "price": 10,
-          "qty": 1
-        }
-      ],
-      "total": 10,
-      "paymentMethod": "Transferencia"
-    }
-  ]
+  "products": [],
+  "sales": []
 }

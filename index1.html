@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Gestión de Inventario</h1>
+            <div class="stats">
+                <span id="totalItems">Total: 0</span>
+                <span id="lowStock">Bajo stock: 0</span>
+            </div>
+        </header>
+
+        <!-- Formulario para agregar producto -->
+        <section class="form-section">
+            <h2>➕ Nuevo Producto</h2>
+            <form id="productForm">
+                <div class="input-group">
+                    <input type="text" id="nombre" placeholder="Nombre del producto" required>
+                    <input type="number" id="cantidad" placeholder="Cantidad" min="0" required>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="precio" placeholder="Precio unitario" min="0" step="0.01">
+                    <input type="number" id="stockMin" placeholder="Stock mínimo" min="0" value="">
+                </div>
+                <button type="submit">Agregar Producto</button>
+            </form>
+        </section>
+
+        <!-- Filtros y búsqueda -->
+        <section class="filters">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar producto...">
+            <select id="filterStatus">
+                <option value="todos">Todos</option>
+                <option value="bajo">Bajo stock</option>
+                <option value="normal">Stock normal</option>
+                <option value="agotado">Agotado</option>
+            </select>
+        </section>
+<!-- Reemplaza la sección products-section completa por esta: -->
+<section class="products-section">
+    <h2>📋 Inventario</h2>
+    <div id="productsList" class="products-grid"></div>
+</section>
+
+<!-- REEMPLAZA la sales-section por esta versión LATERAL -->
+<section class="sales-section-left" id="salesSection">
+    <div class="sales-panel">
+        <div class="sales-header">
+            <h3>🛒 Venta Múltiple</h3>
+            <button id="closeVentas" class="close-btn">✕</button>
+        </div>
+        
+        <!-- CLIENTE -->
+        <div class="cliente-section">
+            <input type="text" id="clienteNombre" placeholder="👤 Nombre cliente (opcional)">
+            <input type="tel" id="clienteTelefono" placeholder="📱 WhatsApp (opcional)">
+        </div>
+
+        <!-- BUSCADOR + AGREGAR -->
+       <div class="input-group">
+    <input type="text" id="ventaSearch" placeholder="🔍 Buscar producto">
+    <input type="number" id="ventaCantidadInput" placeholder="Cant." min="1" value="1" style="width: 80px;">
+    <select id="metodoPagoMulti" style="flex: 1; padding: 12px; border: 2px solid #e0e0e0; border-radius: 12px; font-size: 14px;">
+    <option value="efectivo">💵 Efectivo</option>
+    <option value="transferencia">💳 Transferencia</option>
+</select>
+       <button id="btnAgregarItem" class="btn-add">➕</button>
+</div>
+
+        <div class="venta-items-list" id="ventaItemsList">
+    <div class="empty-state">
+        <div style="font-size: 1.1rem; margin-bottom: 8px;">📦 Carrito vacío</div>
+        <div>🔍 Busca productos y haz clic ➕ para agregar</div>
+    </div>
+</div>
+
+        <div class="total-section">
+    <div class="total-row">
+        <span>Total items: <span id="itemsCount">0</span></span>
+        <strong id="subtotal">$0.00</strong>
+    </div>
+    <hr>
+    <div class="total-row grand-total">
+        <span>TOTAL:</span> 
+        <strong id="granTotal">$0.00</strong>
+    </div>
+    <div class="venta-actions">
+        <button id="btnRealizarVentaMulti" disabled>✅ Procesar Venta</button>
+        <button id="btnCancelarVenta">❌ Cancelar</button>
+    </div>
+</div>
+    </div>
+</section>
+
+<!-- MODAL EDITAR - REEMPLAZA el existente -->
+<div id="editModal" class="modal-edit" style="display: none;">
+    <div class="modal-content-edit">
+        <div class="modal-header">
+            <h3>✏️ Editar Cantidad</h3>
+            <button id="closeEditModal" class="close-btn">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group-edit">
+                <label>Producto:</label>
+                <div id="editNombreProducto" class="producto-label"></div>
+            </div>
+            <div class="input-group-edit">
+                <label>Nueva cantidad:</label>
+                <input type="number" id="editCantidad" min="0" value="0">
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button id="btnGuardarEdit" class="btn-primary">💾 Guardar</button>
+            <button id="btnCancelarEdit" class="btn-secondary">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+       <!-- REEMPLAZA completamente el fab-container -->
+<div class="fab-container">
+    <button id="exportTxtBtn" class="fab" title="Exportar TXT">📥</button>
+    <button id="importTxtBtn" class="fab secondary" title="Importar TXT">📁</button>
+   <!-- ÚNICO botón ventas en fab-container -->
+<button id="fabVentas" class="fab" title="Venta Rápida">🛒</button>
+    <button id="clearAllBtn" class="fab danger" title="Limpiar Todo">🗑️</button>
+</div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Registro del Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "name": "Gestión de Inventario",
+    "short_name": "Inventario",
+    "description": "App web para gestionar inventario completamente offline",
+    "start_url": "/bajushop.html",
+    "display": "standalone",
+    "background_color": "#2196F3",
+    "theme_color": "#2196F3",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMyMTk2RjMiLz4KPHBhdGggZD0iTTY1IDEyNUgxMjdWMTE1SDY1VjEyNVpNNTEgNzVIMTQxVjY1SDUxVjc1Wk0xMzIgMTM1SDY1VjEyNUgxMzJWMTM1Wk0xNDEgMTQ1SDUxVjEzNUgxNDFWMTQ1Wk0xNDEgMTU1SDUxVjE0NUgxNDFWMTU1Wk0xNDEgMTY1SDUxVjE1NUgxNDFWMTY1Wk0xNDEgMTc1SDUxVjE2NUgxNDFWMTc1Wk0xNDEgMTg1SDUxVjE3NUgxNDFWMjg1SDBWMjgwSDE5MlYyODVIMTc2VjI4MEgxNDNWNDlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiMyMTk2RjMiLz4KPHBhdGggZD0iTTIzMCAzMzVIMTM2VjEwM0gyMzBWMzM1Wk0xMzYgMjA1SDIzMFYxOTVIMTM2VjIwNVpNNDEwIDM0NUgyMzBWMzM1SDQxMFYzNDVaTTIzMCAyNDVIMTM2VjIzNUgyMzBWMjQ1Wk00MTAgMjU1SDIzMFYyNDVINFQwVjI1NVpNNDEwIDI2NUgyMzBWMjU1SDQxMFYyNjVaTTQxMCAyNzVIMjMwVjI2NUg0MTBWMjc1Wk00MTAgMjg1SDIzMFYyNzVINFQwVjI4NVpNNDEwIDI5NUgyMzBWMjg1SDQxMFMyOTVaTTQxMCAzMDVIMjMwVjI5NUg0MTBWMzA1Wk00MTAgMzE1SDIzMFYzMDVINFQwVjMxNVpNNDEwIDMyNUgyMzBWMzE1SDQxMFMzMjVaTTQxMCAzMzVINjgzVjMzMEg0MTBWMzM1Wk0xMDcgNDI1SDQxMFQzNDlaTTIzMCA0MzVINDEwVjQyNUgyMzBBNDI1IDQyNSAwIDAxIDEgMjMwIDQzNVYyMzBIMTA3VjIyNUgyMzBBMjI1IDIyNSAwIDAgMSAyMzAgMjMwVjQzNVpNNDEwIDQ0NUgyMzBBNDI1IDQyNSAwIDAgMSAyMzAgNDQ1SDQxMFY0NDVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "maskable any"
+        }
+    ],
+    "categories": ["business", "productivity"],
+    "lang": "es",
+    "dir": "ltr",
+    "scope": "/"
+}
