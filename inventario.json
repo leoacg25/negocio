@@ -1,30 +1,4 @@
 {
-  "products": [
-    {
-      "id": "mp5ypg7jsz8c2kqbv2s",
-      "sku": "12",
-      "name": "FRANELA CABALLERO",
-      "category": "franela",
-      "price": 15,
-      "stock": 4,
-      "minStock": 2
-    }
-  ],
-  "sales": [
-    {
-      "id": "VNT-839112",
-      "date": "2026-05-14T20:50:39.112Z",
-      "items": [
-        {
-          "id": "mp5ypg7jsz8c2kqbv2s",
-          "sku": "12",
-          "name": "FRANELA CABALLERO",
-          "price": 15,
-          "qty": 1
-        }
-      ],
-      "total": 15,
-      "paymentMethod": "Efectivo"
-    }
-  ]
+  "products": [],
+  "sales": []
 }
