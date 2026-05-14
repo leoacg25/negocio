@@ -1,4 +1,14 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mp5ypg7jsz8c2kqbv2s",
+      "sku": "12",
+      "name": "FRANELA CABALLERO",
+      "category": "franela",
+      "price": 15,
+      "stock": 5,
+      "minStock": 2
+    }
+  ],
   "sales": []
 }
