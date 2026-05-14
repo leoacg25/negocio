@@ -1,106 +1,53 @@
 {
   "products": [
     {
-      "id": "mox5a8ju1rffoewrw2g",
-      "sku": "OFI-002",
-      "name": "Escritorio Elevable",
-      "category": "Mobiliario",
-      "price": 320,
-      "stock": 5,
-      "minStock": 2
-    },
-    {
-      "id": "moxa3ornxpxle1bi7e8",
-      "sku": "PIJ-1010",
-      "name": "pijama",
-      "category": "ROPA",
+      "id": "mp38kixyyuowp79iexr",
+      "sku": "PAN01",
+      "name": "Pantalon",
+      "category": "Ropa caballero ",
       "price": 10,
-      "stock": 8,
+      "stock": 2,
       "minStock": 2
     },
     {
-      "id": "mp1nzspp60sf23vgq7v",
-      "sku": "15",
-      "name": "FRANELA CABALLERO talla S",
-      "category": "ROPA",
-      "price": 20,
-      "stock": 14,
-      "minStock": 3
+      "id": "mp4j2rpwu5gj30pbga",
+      "sku": "FRA01",
+      "name": "Franela",
+      "category": "Franelas",
+      "price": 12,
+      "stock": 9,
+      "minStock": 2
     }
   ],
   "sales": [
     {
-      "id": "VNT-698596",
-      "date": "2026-05-08T16:44:58.596Z",
+      "id": "VNT-074504",
+      "date": "2026-05-12T23:04:34.504Z",
       "items": [
         {
-          "id": "mox5b0oj37k75rqb8l2",
-          "sku": "0000123",
-          "name": "FRANELA CABALLERO",
-          "price": 10,
-          "qty": 2
-        }
-      ],
-      "total": 20
-    },
-    {
-      "id": "VNT-528087",
-      "date": "2026-05-08T16:58:48.087Z",
-      "items": [
-        {
-          "id": "mox5b0oj37k75rqb8l2",
-          "sku": "0000123",
-          "name": "FRANELA CABALLERO",
+          "id": "mp38kixyyuowp79iexr",
+          "sku": "PAN01",
+          "name": "Pantalon",
           "price": 10,
           "qty": 1
         }
       ],
       "total": 10,
-      "paymentMethod": "Efectivo"
-    },
-    {
-      "id": "VNT-142143",
-      "date": "2026-05-08T18:49:02.143Z",
-      "items": [
-        {
-          "id": "mox9nz4eyrm2scd4bcj",
-          "sku": "123",
-          "name": "FRANELA CABALLERO",
-          "price": 20,
-          "qty": 1
-        }
-      ],
-      "total": 20,
       "paymentMethod": "Transferencia"
     },
     {
-      "id": "VNT-752132",
-      "date": "2026-05-08T18:59:12.132Z",
+      "id": "VNT-708845",
+      "date": "2026-05-13T20:55:08.845Z",
       "items": [
         {
-          "id": "moxa3ornxpxle1bi7e8",
-          "sku": "PIJ-1010",
-          "name": "pijama",
-          "price": 10,
+          "id": "mp4j2rpwu5gj30pbga",
+          "sku": "FRA01",
+          "name": "Franela",
+          "price": 12,
           "qty": 2
         }
       ],
-      "total": 20,
-      "paymentMethod": "Transferencia"
-    },
-    {
-      "id": "VNT-949013",
-      "date": "2026-05-11T20:39:09.013Z",
-      "items": [
-        {
-          "id": "mp1nzspp60sf23vgq7v",
-          "sku": "15",
-          "name": "FRANELA CABALLERO",
-          "price": 15,
-          "qty": 1
-        }
-      ],
-      "total": 15,
+      "total": 24,
       "paymentMethod": "Transferencia"
     }
   ]
