@@ -17,7 +17,32 @@
       "price": 20,
       "stock": 5,
       "minStock": 2
+    },
+    {
+      "id": "mp5yvy64es4tox18pcd",
+      "sku": "10",
+      "name": "Pantalones",
+      "category": "Pantalones",
+      "price": 15,
+      "stock": 14,
+      "minStock": 5
     }
   ],
-  "sales": []
+  "sales": [
+    {
+      "id": "VNT-120080",
+      "date": "2026-05-14T20:55:20.080Z",
+      "items": [
+        {
+          "id": "mp5yvy64es4tox18pcd",
+          "sku": "10",
+          "name": "Pantalones",
+          "price": 15,
+          "qty": 1
+        }
+      ],
+      "total": 15,
+      "paymentMethod": "Efectivo"
+    }
+  ]
 }
