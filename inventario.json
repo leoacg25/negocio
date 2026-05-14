@@ -1,4 +1,14 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mp5ytfim8g2771ti23f",
+      "sku": "11",
+      "name": "Pijama",
+      "category": "Pijama",
+      "price": 15,
+      "stock": 10,
+      "minStock": 1
+    }
+  ],
   "sales": []
 }
