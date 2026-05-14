@@ -8,6 +8,15 @@
       "price": 15,
       "stock": 10,
       "minStock": 1
+    },
+    {
+      "id": "mp5yutmgq9u6ag8d6tq",
+      "sku": "12",
+      "name": "franela",
+      "category": "franelas",
+      "price": 20,
+      "stock": 5,
+      "minStock": 2
     }
   ],
   "sales": []
