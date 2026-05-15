@@ -33,7 +33,7 @@
       "name": "zapatos",
       "category": "Calzado ",
       "price": 40,
-      "stock": 3,
+      "stock": 2,
       "minStock": 1
     }
   ],
@@ -51,6 +51,21 @@
         }
       ],
       "total": 15,
+      "paymentMethod": "Efectivo"
+    },
+    {
+      "id": "VNT-115107",
+      "date": "2026-05-15T16:05:15.107Z",
+      "items": [
+        {
+          "id": "mp73yzzbbudvtn2c27d",
+          "sku": "09",
+          "name": "zapatos",
+          "price": 40,
+          "qty": 1
+        }
+      ],
+      "total": 40,
       "paymentMethod": "Efectivo"
     }
   ]
