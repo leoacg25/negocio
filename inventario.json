@@ -26,6 +26,15 @@
       "price": 15,
       "stock": 14,
       "minStock": 5
+    },
+    {
+      "id": "mp73yzzbbudvtn2c27d",
+      "sku": "09",
+      "name": "zapatos",
+      "category": "Calzado ",
+      "price": 40,
+      "stock": 3,
+      "minStock": 1
     }
   ],
   "sales": [
