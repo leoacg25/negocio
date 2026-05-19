@@ -33,7 +33,7 @@
       "name": "Body Manga corta cuello cuadrado verde militar",
       "category": "Body",
       "price": 6,
-      "stock": 2,
+      "stock": 1,
       "minStock": 1
     },
     {
@@ -1485,6 +1485,21 @@
         }
       ],
       "total": 40,
+      "paymentMethod": "Transferencia"
+    },
+    {
+      "id": "VNT-189505",
+      "date": "2026-05-19T20:56:29.505Z",
+      "items": [
+        {
+          "id": "mpd33wisk1wuw4rq4ta",
+          "sku": "BO04",
+          "name": "Body Manga corta cuello cuadrado verde militar",
+          "price": 6,
+          "qty": 1
+        }
+      ],
+      "total": 6,
       "paymentMethod": "Transferencia"
     }
   ]
