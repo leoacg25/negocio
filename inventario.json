@@ -1,42 +1,5 @@
 {
-  "products": [
-    {
-      "id": "mp5ytfim8g2771ti23f",
-      "sku": "11",
-      "name": "Pijama",
-      "category": "Pijama",
-      "price": 15,
-      "stock": 10,
-      "minStock": 1
-    },
-    {
-      "id": "mp5yutmgq9u6ag8d6tq",
-      "sku": "12",
-      "name": "franela",
-      "category": "franelas",
-      "price": 20,
-      "stock": 5,
-      "minStock": 2
-    },
-    {
-      "id": "mp5yvy64es4tox18pcd",
-      "sku": "10",
-      "name": "Pantalones",
-      "category": "Pantalones",
-      "price": 15,
-      "stock": 14,
-      "minStock": 5
-    },
-    {
-      "id": "mp73yzzbbudvtn2c27d",
-      "sku": "09",
-      "name": "zapatos",
-      "category": "Calzado ",
-      "price": 40,
-      "stock": 1,
-      "minStock": 1
-    }
-  ],
+  "products": [],
   "sales": [
     {
       "id": "VNT-120080",
