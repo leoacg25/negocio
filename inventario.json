@@ -1,5 +1,1446 @@
 {
-  "products": [],
+  "products": [
+    {
+      "id": "mpd33wisb1yyid3a64n",
+      "sku": "BO01",
+      "name": "Body Manga corta cuello cuadrado blanco",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis8nfzy7ae4hj",
+      "sku": "BO02",
+      "name": "Body Manga corta cuello cuadrado azul rey",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis1ttwsx6p21a",
+      "sku": "BO03",
+      "name": "Body Manga corta cuello cuadrado negro",
+      "category": "Body",
+      "price": 6,
+      "stock": 3,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisk1wuw4rq4ta",
+      "sku": "BO04",
+      "name": "Body Manga corta cuello cuadrado verde militar",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6ge5l4dgoz3",
+      "sku": "BO05",
+      "name": "Body Manga corta cuello cuadrado fucsia",
+      "category": "Body",
+      "price": 6,
+      "stock": 3,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis5j9tsv4oczv",
+      "sku": "BO06",
+      "name": "Body Manga corta cuello cuadrado azul marino",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisbprrsm5o8mc",
+      "sku": "BO07",
+      "name": "Body Manga corta cuello cuadrado vinotinto",
+      "category": "Body",
+      "price": 6,
+      "stock": 3,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisnsj9itexbc",
+      "sku": "BO08",
+      "name": "Body Manga corta cuello cuadrado rojo",
+      "category": "Body",
+      "price": 6,
+      "stock": 6,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisefaih53fh1g",
+      "sku": "BO09",
+      "name": "Body Manga larga cuello cuadrado blanco",
+      "category": "Body",
+      "price": 6,
+      "stock": 4,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisnry3ksgmfmo",
+      "sku": "BO10",
+      "name": "Body manga larga cuello cuadrado beige",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisgiwlk7jvuu9",
+      "sku": "BO11",
+      "name": "Body manga larga cuello cuadrado rojo",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisa803v8qofg",
+      "sku": "BO12",
+      "name": "Body manga larga cuello cuadrado negro",
+      "category": "Body",
+      "price": 6,
+      "stock": 0,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisqzwc2ggfllq",
+      "sku": "BO13",
+      "name": "Body manga larga cuello cuadrado azul marino",
+      "category": "Body",
+      "price": 6,
+      "stock": 4,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis8t4hhsozgga",
+      "sku": "BO14",
+      "name": "Body manga larga cuello redondo blanco",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis9utel7o5p4",
+      "sku": "BO15",
+      "name": "Body manga larga cuello redondo azul rey",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wise21s8g93qwh",
+      "sku": "BO16",
+      "name": "Body manga larga cuello redondo negro",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6sklou95a55",
+      "sku": "BO17",
+      "name": "Body de lazos blanco",
+      "category": "Body",
+      "price": 6,
+      "stock": 4,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisbdgnmc8f5st",
+      "sku": "BO18",
+      "name": "Body de lazos beige",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6dl2eoj4vik",
+      "sku": "B019",
+      "name": "Body de lazos azul rey",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis93wysvo1v95",
+      "sku": "BO20",
+      "name": "Body de lazos negro",
+      "category": "Body",
+      "price": 6,
+      "stock": 5,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisbb1du0bsqvs",
+      "sku": "BO21",
+      "name": "Body de lazos verde militar",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis909k0xwz0h4",
+      "sku": "BO22",
+      "name": "Body de lazos rojo",
+      "category": "Body",
+      "price": 6,
+      "stock": 5,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisgueca78us1g",
+      "sku": "BO23",
+      "name": "Body de lazos vinotinto 3",
+      "category": "Body",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisld8ui4u8ixe",
+      "sku": "BO24",
+      "name": "Body de lazos azul marino",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisea2ns60tpl9",
+      "sku": "B25",
+      "name": "Body manga larga cuello tortuga Azul marino",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisai0m97uceqh",
+      "sku": "BO26",
+      "name": "Body manga larga cuello tortuga gris",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiszv4boqlstw",
+      "sku": "BO27",
+      "name": "Body manga larga cuello tortuga rosa vieja",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiswvjbkpng4a",
+      "sku": "BO28",
+      "name": "Body manga larga cuello tortuga lila",
+      "category": "Body",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wishxcifzpecmg",
+      "sku": "BLU01",
+      "name": "Blusa asimétricas negro",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 0,
+      "minStock": 2
+    },
+    {
+      "id": "mpd33wisv2aes0ikgh",
+      "sku": "BLU02",
+      "name": "Blusa asimetrica verde militar",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisrgrfvi8lbf",
+      "sku": "BLU03",
+      "name": "Blusa asimetrica azul rey",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisoe86oa3ypf",
+      "sku": "BLU04",
+      "name": "Blusa asimetrica azul marino",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis40sadmlld6a",
+      "sku": "BLU05",
+      "name": "Blusa asimetrica azul bebe",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 0,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisdvh4yoxcack",
+      "sku": "BLU06",
+      "name": "Blusa asimetrica rojo",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisxi3pbatguu",
+      "sku": "BLU07",
+      "name": "Blusa asimetrica vinotinto",
+      "category": "Blusa",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wist1fmse4303i",
+      "sku": "DEP01",
+      "name": "Conjunto deportivo leggins verde",
+      "category": "Conjunto",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis7avssvc8ann",
+      "sku": "DEP02",
+      "name": "Conjunto deportivo leggins rojo",
+      "category": "Conjunto",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisi27ee8z9htr",
+      "sku": "DEP03",
+      "name": "Conjunto deportivo leggins beige",
+      "category": "Conjunto",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiscl71u9hpdan",
+      "sku": "DEP04",
+      "name": "Conjunto deportivo de leggins azul",
+      "category": "Conjunto",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6bcdrvw9jhl",
+      "sku": "DEP05",
+      "name": "Conjunto deportivo shorts morado",
+      "category": "Conjunto",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisp2o1bupflsd",
+      "sku": "DEP06",
+      "name": "Conjunto deportivo de shorts azul bebe",
+      "category": "Conjunto",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisd3ren58o8dj",
+      "sku": "DEP07",
+      "name": "Conjunto deportivo de shorts verde claro",
+      "category": "Conjunto",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiscqb3fmlynqp",
+      "sku": "BAT01",
+      "name": "Bata talla S fucsia",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisfzxwc3u56qg",
+      "sku": "BAT02",
+      "name": "Bata talla S azul claro",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisvyqou577gnq",
+      "sku": "BAT03",
+      "name": "Bata talla M azul rey",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis2yafhk4arxj",
+      "sku": "BAT04",
+      "name": "Bata talla M morado",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wishw1p6jnm9ld",
+      "sku": "BAT05",
+      "name": "Bata talla M azul claro",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisy2jar7t6ngm",
+      "sku": "BAT06",
+      "name": "Bata talla M verde",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis1z06gj5ai0u",
+      "sku": "BAT07",
+      "name": "Bata talla XL Rosado",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wishivw9ar4mzm",
+      "sku": "BAT08",
+      "name": "Bata talla XL verde",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisfb7cb8u8soh",
+      "sku": "PIJ01",
+      "name": "Pijama de dama morochas fucsia S",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis5cbk1ydcyvp",
+      "sku": "PIJ02",
+      "name": "Pijama de dama morochas negro L",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wise4408j0q4fa",
+      "sku": "PIJ03",
+      "name": "Pijama de dama morochas azul claro L",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisk0v58vsq9",
+      "sku": "PIJ04",
+      "name": "Pijama de dama morochas gris con blanco L",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisgrom4uw8fwk",
+      "sku": "PIJ05",
+      "name": "Pijama de dama morochas beige XL",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis86gsktw5ryj",
+      "sku": "PIJ06",
+      "name": "Pijama de dama morochas rosa vieja XL",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisohgtdyvo3l",
+      "sku": "BIK01",
+      "name": "Biker de dama gris",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wist1hsayquol",
+      "sku": "BIK02",
+      "name": "Biker de dama negro",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiskf0ctkxvl0g",
+      "sku": "BIK03",
+      "name": "Biker de dama verde militar",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisfh28d2ytx9j",
+      "sku": "BIR04",
+      "name": "Biker de dama morado",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiswp97frbhmvh",
+      "sku": "BIK05",
+      "name": "Biker de dama vinotinto",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisni9rg4efswj",
+      "sku": "BIK06",
+      "name": "Biker de dama verde turquesa",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisoiamyouqew",
+      "sku": "BIK07",
+      "name": "Biker de dama fucsia",
+      "category": "Deporte",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisb5vv7rurl2f",
+      "sku": "MO01",
+      "name": "Monos de bolsillos negro",
+      "category": "Deporte",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiszf63kvqt42",
+      "sku": "MO02",
+      "name": "Monos de bolsillos azul marino",
+      "category": "Deporte",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiss8mcletu7jf",
+      "sku": "MO03",
+      "name": "Monos de bolsillos gris oscuro",
+      "category": "Deporte",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisib6uhmx643j",
+      "sku": "MO04",
+      "name": "Monos de bolsillos rosado",
+      "category": "Deporte",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6uhplyibcgv",
+      "sku": "KIR01",
+      "name": "Leggins Kirios talla única gris oscuro",
+      "category": "Deportivo",
+      "price": 10,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis4vm9f012k15",
+      "sku": "KIR02",
+      "name": "Leggins Kirios talla única amarillo fluorecente",
+      "category": "Deportivo",
+      "price": 10,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiswhu96hkq9j",
+      "sku": "KIR03",
+      "name": "Leggins Kirios talla única rojo",
+      "category": "Deportivo",
+      "price": 10,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis9nh90pwoah7",
+      "sku": "KIR04",
+      "name": "Leggins Kirios talla única beige",
+      "category": "Deportivo",
+      "price": 10,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisyjudjiko5ii",
+      "sku": "KIR05",
+      "name": "Leggins Kirios talla única rosa vieja",
+      "category": "Deportivo",
+      "price": 10,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiswzt07cyqwn",
+      "sku": "SHO01",
+      "name": "Shorts de caballero con cierre gris oscuro",
+      "category": "Deportivo",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisqolds8o3b5",
+      "sku": "SHO02",
+      "name": "Shorts de caballero con cierre XL gris claro",
+      "category": "Deportivo",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis59p0f5nm7q5",
+      "sku": "SHO03",
+      "name": "Shorts de caballero con licra XL Gris claro",
+      "category": "Deportivo",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisj0xs0lohtz",
+      "sku": "M/L01",
+      "name": "Franela de dama M/L sumer vibes",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis0r1ytp1jlkuq",
+      "sku": "M/L02",
+      "name": "Franela de dama M/L guayaba",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wiszp30jkwu95r",
+      "sku": "M/L03",
+      "name": "Franela de dama M/L dama y el vagabundo",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisrylben641ok",
+      "sku": "M/L04",
+      "name": "Franela de dama M/L Stitch guitarra",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis5wrfxcupkjd",
+      "sku": "M/L05",
+      "name": "Franela de dama M/L sol be the sunshine",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisywanvqsko9m",
+      "sku": "M/L06",
+      "name": "Franela de dama M/L tigres stoner",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis6tyifn4y7ys",
+      "sku": "M/L07",
+      "name": "Franela de dama M/L malefica",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis7n0t088m3n",
+      "sku": "M/L08",
+      "name": "Franela de dama M/L nucita",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis9wggh82kd4s",
+      "sku": "M/L09",
+      "name": "Franela de dama M/L flips",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisio3w4tan6je",
+      "sku": "M/L10",
+      "name": "Franela de dama M/L Stitch cocinero fondo azul",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wis5fmaivntfo3",
+      "sku": "M/L11",
+      "name": "Franela de dama M/L cherries",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wisdepcj8i1nnv",
+      "sku": "M/L12",
+      "name": "Franela de dama M/L las princesas",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit60kul9u9lco",
+      "sku": "M/L13",
+      "name": "Franela de dama M/L garfiel",
+      "category": "Franelas",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witnjzm3ogxu7p",
+      "sku": "M/L14",
+      "name": "Franela de dama M/L samba",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witud16k3oe8so",
+      "sku": "M/L15",
+      "name": "Franela de dama M/L gato negro franela azul",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witdg5ej84qeeu",
+      "sku": "M/L16",
+      "name": "Franela de dama M/L muñeco con las nalgas afuera franela azul",
+      "category": "Franela",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit3qcro948bzq",
+      "sku": "MED01",
+      "name": "Docena de medias de dama",
+      "category": "Medias",
+      "price": 4,
+      "stock": 5,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33withrfm4nyyc1d",
+      "sku": "S01",
+      "name": "Franela de dama talla S Bob esponja rosada",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witc2g3ng6rryo",
+      "sku": "S02",
+      "name": "Franela de dama talla S Stitch morada",
+      "category": "Franela ñ",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witps4wyi23icc",
+      "sku": "S03",
+      "name": "Franela de dama talla S galac azul",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witn2ofvhko9ef",
+      "sku": "S04",
+      "name": "Franela de dama talla S camuflaje azul con cerezas",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witi68mr388k2",
+      "sku": "S05",
+      "name": "Franela de dama talla S camuflaje azul con flores",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 3,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33withxb4jikm9mt",
+      "sku": "S06",
+      "name": "Franela de dama talla S Stitch de rayas marron",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit9up5tfea26",
+      "sku": "S07",
+      "name": "Franela de dama talla S Stitch verde claro",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witzsizbjh5uxn",
+      "sku": "S08",
+      "name": "Franela de dama talla S camuflaje en rojo",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witqxamohatfwc",
+      "sku": "S09",
+      "name": "Franela de dama talla S mini rayas negras",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witcmfw3h7chab",
+      "sku": "S10",
+      "name": "Franela de dama talla S Stitch blanco",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witb1yh8nip279",
+      "sku": "S11",
+      "name": "Franela de dama talla S rayas marrón con flor",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit3uhstjoirmu",
+      "sku": "S12",
+      "name": "Franela de dama talla S los angeles 38",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witazkh45gg9ov",
+      "sku": "S13",
+      "name": "Franela de dama talla S mini rosada fluorecente",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witzp0f2z0c5jb",
+      "sku": "S14",
+      "name": "Franela de dama talla S Stitch rayas negras",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit7p4arj9e2rm",
+      "sku": "S15",
+      "name": "Franela de dama talla S mini verde claro",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witaohkvrgawa9",
+      "sku": "S16",
+      "name": "Franela de dama talla S mini vinotinto",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witn164xgdts9n",
+      "sku": "S17",
+      "name": "Franela de dama talla S azul rey flor",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witdwklay82ono",
+      "sku": "S18",
+      "name": "Franela de dama talla S Miki mouse verde claro",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit22epuo4n79s",
+      "sku": "S19",
+      "name": "Franela de dama talla S vinotinto con flor",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit3eiusyu3mb1",
+      "sku": "S20",
+      "name": "Franela de dama talla S rosa vieja con flor",
+      "category": "Franela",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witpkvy7qh2uxe",
+      "sku": "CAM01",
+      "name": "Blusa tipo camiseta de dama blanco con gris",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 3,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witdti75x694i",
+      "sku": "CAM02",
+      "name": "Blusa tipo camiseta de dama blanca con azul marino",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witiv0ep80ec",
+      "sku": "CAM03",
+      "name": "Blusa tipo camiseta de dama rojo",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wits9wssg673g",
+      "sku": "CAM04",
+      "name": "Blusa tipo camiseta de dama verde militar",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witifboumbtelg",
+      "sku": "CAM05",
+      "name": "Blusa tipo camiseta de dama verde claro",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witjcl8gnt6j9",
+      "sku": "CAM06",
+      "name": "Blusa tipo camiseta de dama azul claro",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witwtw8ufsge8",
+      "sku": "CAM07",
+      "name": "Blusa tipo camiseta de dama azul turquesa oscuro",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit3015hihik71",
+      "sku": "CAM08",
+      "name": "Blusa tipo camiseta de dama fucsia",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit846yinxaxar",
+      "sku": "CAM09",
+      "name": "Blusa tipo camiseta de dama color ladrillo",
+      "category": "Blusa",
+      "price": 2.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witeyjenpto9ih",
+      "sku": "BAL02",
+      "name": "Balaclava de dama solo el cabello 75cm negro",
+      "category": "Balaclava",
+      "price": 8,
+      "stock": 4,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witbi6f8q64jlj",
+      "sku": "BAL03",
+      "name": "Balaclava de dama solo el cabello 95cm negro",
+      "category": "Balaclava",
+      "price": 9,
+      "stock": 6,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witu4hsmh2frq",
+      "sku": "BAL01",
+      "name": "Balaclava de dama solo el cabello 65cm negro",
+      "category": "Balaclava",
+      "price": 7,
+      "stock": 8,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit6buz79hmlj5",
+      "sku": "BAL04",
+      "name": "Balaclava de dama solo el cabello 65cm fucsia",
+      "category": "Balaclava",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witcjqwxftri5",
+      "sku": "BAL05",
+      "name": "Balaclava de dama solo el cabello 65cm gris",
+      "category": "Balaclava",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witjr80afvxgs",
+      "sku": "BAL06",
+      "name": "Balaclava de dama solo el cabello 65cm azul marino",
+      "category": "Balaclava",
+      "price": 7,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witsltt8gsnyjq",
+      "sku": "BAL07",
+      "name": "Balaclava de dama solo el cabello 75cm azul marino",
+      "category": "Balaclava",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit4jpe9snvio3",
+      "sku": "BAL08",
+      "name": "Balaclava de dama solo el cabello 75cm azul rey",
+      "category": "Balaclava",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit0iaupoe0oy7s",
+      "sku": "BAL09",
+      "name": "Balaclava de dama solo el cabello 75cm fucsia",
+      "category": "Balaclava",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit4i4xy2siydb",
+      "sku": "BAL10",
+      "name": "Balaclava de dama solo el cabello 75cm gris",
+      "category": "Balaclava",
+      "price": 8,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witvanjwqpa90d",
+      "sku": "BAL11",
+      "name": "Balaclava de dama solo el cabello 95cm gris",
+      "category": "Balaclava",
+      "price": 9,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witofbsqza5f7",
+      "sku": "BAL12",
+      "name": "Balaclava de dama solo el cabello 95cm azul rey",
+      "category": "Balaclava",
+      "price": 9,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit808okhzeewl",
+      "sku": "BAL13",
+      "name": "Balaclava de dama solo el cabello 50cm azul rey",
+      "category": "Balaclava",
+      "price": 6,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit7687bt0yfvx",
+      "sku": "TOP01",
+      "name": "Crops tops de dama de mariposas rojo",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witjb6ue2agwun",
+      "sku": "TOP02",
+      "name": "Crops tops de dama de mariposas lila",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witpx55c1ft5mg",
+      "sku": "TOP03",
+      "name": "Crops tops de dama de mariposas verde claro",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witzfwgdwq8j",
+      "sku": "TOP04",
+      "name": "Crops tops de dama de mariposas fucsia",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witzblksfckmv",
+      "sku": "TOP05",
+      "name": "Crops tops de dama de mariposas rosado bebe",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witrrce0ippykn",
+      "sku": "MED02",
+      "name": "Medias de malla mediana",
+      "category": "Medias",
+      "price": 2.5,
+      "stock": 4,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witj3zz0sju2xd",
+      "sku": "TOP06",
+      "name": "Crops tops de dama gris con flor",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witgd0217wp2zr",
+      "sku": "TOP07",
+      "name": "Crops tops de dama vaca xo azul turquesa oscuro",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witwr9ttn1kny",
+      "sku": "TOP08",
+      "name": "Crops tops de dama palabras venezolanas azul claro",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witgnd4i8fydbb",
+      "sku": "TOP09",
+      "name": "Crops tops de dama coconut blanco",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit9r22kz8xu0k",
+      "sku": "TOP10",
+      "name": "Crops tops de dama retro con cerezas rosada",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witmaiilulk5p9",
+      "sku": "TOP11",
+      "name": "Crops tops de dama barbie en blanco",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witmkk6weko5rb",
+      "sku": "TOP12",
+      "name": "Crops tops de dama tigre",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witx7lfi3eux2",
+      "sku": "TOP14",
+      "name": "Crops tops de dama lazo con cerezas negro",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit4isdpu10sj",
+      "sku": "TOP15",
+      "name": "Crops tops de dama lilo y Stitch",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witu0p9ezf3kk",
+      "sku": "TOP16",
+      "name": "Crops tops de dama manga corrida unicolor negro",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit7qc2r2dmhvo",
+      "sku": "TOP17",
+      "name": "Crops tops de dama manga corrida fucsia",
+      "category": "Crops tops",
+      "price": 5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witwye89nklma",
+      "sku": "PI01",
+      "name": "Pijama de dama S verde militar malibu",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witanretmv9eht",
+      "sku": "PI02",
+      "name": "Pijama de dama S azul claro cerezas",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33witifvn1bw4k0n",
+      "sku": "PI03",
+      "name": "Pijama de dama S vaca rosado",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit7jl8zuvmmu",
+      "sku": "PI04",
+      "name": "Pijama de dama S pantera rosa",
+      "category": "Pijama",
+      "price": 5.5,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit2xhq2sxbdaj",
+      "sku": "PI05",
+      "name": "Bata de dama moster inc S/M y L/XL",
+      "category": "Batas",
+      "price": 5.5,
+      "stock": 2,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit4sfhljvmc1f",
+      "sku": "PI06",
+      "name": "Pijama de dama S lila con cerezas",
+      "category": "Pijama",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit1kzxiqhl8vp",
+      "sku": "PI07",
+      "name": "Pijama de dama S lila con cerezas y blanco al costado",
+      "category": "Pijama",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit6xz9cw6vsle",
+      "sku": "PI08",
+      "name": "Pijama de dama S corazones azul claro",
+      "category": "Pijama",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    },
+    {
+      "id": "mpd33wit3rpkctmnptq",
+      "sku": "PI09",
+      "name": "Pijama de dama S azul claro con corazones blanco en los costados",
+      "category": "Pijama",
+      "price": 4,
+      "stock": 1,
+      "minStock": 1
+    }
+  ],
   "sales": [
     {
       "id": "VNT-120080",
