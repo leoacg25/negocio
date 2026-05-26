@@ -22,6 +22,115 @@
         /* Modal transitions */
         .modal { transition: opacity 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; }
+
+        /* Mobile: cards ~30% smaller, cart gets more space */
+        @media (max-width: 1023px) {
+            #pos-product-grid {
+                gap: 0.3rem !important;
+            }
+            #pos-product-grid > div {
+                padding: 0.25rem !important;
+                height: 3.4rem !important;
+                border-radius: 0.4rem !important;
+            }
+            #pos-product-grid > div h4 {
+                font-size: 0.55rem !important;
+                line-height: 1 !important;
+            }
+            #pos-product-grid > div p {
+                font-size: 0.45rem !important;
+                margin-top: 0 !important;
+            }
+            #pos-product-grid > div .font-bold {
+                font-size: 0.55rem !important;
+            }
+            #pos-product-grid > div .text-xs {
+                font-size: 0.4rem !important;
+            }
+            #pos-product-grid > div .absolute {
+                font-size: 0.35rem !important;
+                padding: 0.02rem 0.2rem !important;
+            }
+            #pos-product-grid > div .mt-2 {
+                margin-top: 0.05rem !important;
+            }
+            #pos-product-grid > div .mt-1 {
+                margin-top: 0 !important;
+            }
+            #pos-product-grid > div i {
+                font-size: 0.65rem !important;
+            }
+            /* Products area: limited height so cart gets more room */
+            #tab-sales .lg\:col-span-2 {
+                max-height: 28vh !important;
+            }
+            /* Cart takes remaining space */
+            #tab-sales .lg\:col-span-1 {
+                flex: 1 1 auto !important;
+            }
+            /* Compact cart items */
+            #cart-items > div:not(#cart-empty-message) > div {
+                padding: 0.3rem 0.4rem !important;
+                gap: 0.3rem !important;
+                margin-bottom: 0.15rem !important;
+            }
+            #cart-items > div:not(#cart-empty-message) > div .font-medium {
+                font-size: 0.55rem !important;
+            }
+            #cart-items > div:not(#cart-empty-message) > div .text-\[10px\] {
+                font-size: 0.4rem !important;
+            }
+            #cart-items > div:not(#cart-empty-message) > div .w-7 {
+                width: 1.25rem !important;
+                height: 1.25rem !important;
+            }
+            #cart-items > div:not(#cart-empty-message) > div .w-7 i {
+                font-size: 0.4rem !important;
+            }
+            #cart-items > div:not(#cart-empty-message) > div .w-14 {
+                width: 2.5rem !important;
+                font-size: 0.5rem !important;
+            }
+            /* Compact checkout section */
+            #tab-sales .lg\:col-span-1 > div:last-child {
+                padding: 0.4rem 0.5rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .text-lg {
+                font-size: 0.8rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .text-2xl {
+                font-size: 1rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .text-sm {
+                font-size: 0.55rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .mb-2 {
+                margin-bottom: 0.15rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .mb-4 {
+                margin-bottom: 0.2rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .mb-1 {
+                margin-bottom: 0.1rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .py-3 {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .text-lg.font-bold {
+                font-size: 0.7rem !important;
+            }
+            /* Compact exchange rate bar */
+            #tab-sales .lg\:col-span-1 .px-4.py-2 {
+                padding: 0.2rem 0.4rem !important;
+            }
+            /* Search bar 10% smaller */
+            #search-pos {
+                font-size: 0.9rem !important;
+                padding-top: 0.4rem !important;
+                padding-bottom: 0.4rem !important;
+            }
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -302,7 +411,7 @@
                             </div>
                         </div>
                         <div class="flex-1 overflow-y-auto p-4 bg-slate-50/30 min-h-0">
-                            <div id="pos-product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <div id="pos-product-grid" class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-4">
                                 <!-- Productos para POS generados por JS -->
                             </div>
                             <div id="pos-empty-state" class="hidden flex flex-col items-center justify-center p-12 text-slate-400 h-full">
@@ -1677,22 +1786,18 @@
                     subtotal += lineTotal;
                     
                     html += `
-                        <div class="flex flex-col p-3 border-b border-slate-100 last:border-0 bg-white rounded-lg mb-1 shadow-sm">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="font-medium text-slate-800 text-sm line-clamp-2 pr-2">${item.name}</span>
-                                <span class="font-bold text-slate-800 whitespace-nowrap">${formatMoney(lineTotal)}</span>
+                        <div class="flex items-center gap-2 px-2.5 py-2 border-b border-slate-100 last:border-0 bg-white rounded-md mb-0.5 shadow-sm">
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium text-slate-800 text-xs leading-tight truncate">${item.name}</div>
+                                <div class="text-[10px] text-slate-500">${formatMoney(pricing.unitPrice)} c/u</div>
                             </div>
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-slate-500">${formatMoney(pricing.unitPrice)} c/u</span>
-                                <div class="flex items-center gap-2">
-                                    ${pricing.hasOffer ? `<span class="text-xs text-green-600 font-medium">-${formatMoney(pricing.savings)}</span>` : ''}
-                                    <div class="flex items-center bg-slate-100 rounded-lg">
-                                        <button onclick="updateCartQty('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-l-lg transition-colors"><i class="fa-solid fa-minus text-xs"></i></button>
-                                        <span class="w-8 text-center font-medium text-slate-800">${item.qty}</span>
-                                        <button onclick="updateCartQty('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-r-lg transition-colors"><i class="fa-solid fa-plus text-xs"></i></button>
-                                    </div>
-                                </div>
+                            ${pricing.hasOffer ? `<span class="text-[10px] text-green-600 font-medium shrink-0">-${formatMoney(pricing.savings)}</span>` : ''}
+                            <div class="flex items-center bg-slate-100 rounded-md shrink-0">
+                                <button onclick="updateCartQty('${item.id}', -1)" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-l-md transition-colors"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                                <span class="w-7 text-center font-semibold text-slate-800 text-xs">${item.qty}</span>
+                                <button onclick="updateCartQty('${item.id}', 1)" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-r-md transition-colors"><i class="fa-solid fa-plus text-[10px]"></i></button>
                             </div>
+                            <span class="font-semibold text-slate-800 text-xs shrink-0 w-14 text-right">${formatMoney(lineTotal)}</span>
                         </div>
                     `;
                 });
