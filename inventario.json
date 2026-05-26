@@ -23,7 +23,7 @@
       "stock": 2,
       "minStock": 1,
       "costPrice": 4,
-      "profitPercent": 0,
+      "profitPercent": 50,
       "offerEnabled": false,
       "offerQty": 0,
       "offerPrice": 0
