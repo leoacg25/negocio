@@ -70,7 +70,7 @@
       "name": "Body Manga corta cuello cuadrado vinotinto",
       "category": "Body",
       "price": 6,
-      "stock": 3,
+      "stock": 2,
       "minStock": 1
     },
     {
@@ -79,7 +79,7 @@
       "name": "Body Manga corta cuello cuadrado rojo",
       "category": "Body",
       "price": 6,
-      "stock": 6,
+      "stock": 5,
       "minStock": 1
     },
     {
@@ -1531,6 +1531,39 @@
       ],
       "total": 6,
       "paymentMethod": "Transferencia",
+      "exchangeRate": 535.3853
+    },
+    {
+      "id": "VNT-131213",
+      "date": "2026-05-26T18:28:51.213Z",
+      "items": [
+        {
+          "id": "mpd33wisbprrsm5o8mc",
+          "sku": "BO07",
+          "name": "Body Manga corta cuello cuadrado vinotinto",
+          "price": 6,
+          "qty": 1,
+          "lineTotal": 6,
+          "hasOffer": false
+        },
+        {
+          "id": "mpd33wisnsj9itexbc",
+          "sku": "BO08",
+          "name": "Body Manga corta cuello cuadrado rojo",
+          "price": 6,
+          "qty": 1,
+          "lineTotal": 6,
+          "hasOffer": false
+        }
+      ],
+      "total": 12,
+      "paymentMethod": "Efectivo $12.00",
+      "paymentMethods": [
+        {
+          "method": "Efectivo",
+          "amount": 12
+        }
+      ],
       "exchangeRate": 535.3853
     }
   ]
