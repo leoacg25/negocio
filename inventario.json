@@ -21,7 +21,12 @@
       "category": "Body",
       "price": 6,
       "stock": 2,
-      "minStock": 1
+      "minStock": 1,
+      "costPrice": 4,
+      "profitPercent": 0,
+      "offerEnabled": false,
+      "offerQty": 0,
+      "offerPrice": 0
     },
     {
       "id": "mpd33wis1ttwsx6p21a",
