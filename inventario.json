@@ -7,7 +7,12 @@
       "category": "Body",
       "price": 6,
       "stock": 2,
-      "minStock": 1
+      "minStock": 1,
+      "costPrice": 3,
+      "profitPercent": 100,
+      "offerEnabled": false,
+      "offerQty": 0,
+      "offerPrice": 0
     },
     {
       "id": "mpd33wis8nfzy7ae4hj",
