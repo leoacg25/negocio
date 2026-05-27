@@ -124,7 +124,7 @@
       "name": "Body manga larga cuello cuadrado azul marino",
       "category": "Body",
       "price": 6,
-      "stock": 4,
+      "stock": 2,
       "minStock": 1,
       "offerEnabled": true,
       "offerQty": 2,
@@ -1599,6 +1599,34 @@
         {
           "method": "Transferencia",
           "amount": 2
+        }
+      ],
+      "exchangeRate": 535.3853
+    },
+    {
+      "id": "VNT-887051",
+      "date": "2026-05-27T00:48:07.051Z",
+      "items": [
+        {
+          "id": "mpd33wisqzwc2ggfllq",
+          "sku": "BO13",
+          "name": "Body manga larga cuello cuadrado azul marino",
+          "price": 6,
+          "qty": 2,
+          "lineTotal": 10,
+          "hasOffer": true
+        }
+      ],
+      "total": 10,
+      "paymentMethod": "Efectivo $5.00 + Transferencia $5.00",
+      "paymentMethods": [
+        {
+          "method": "Efectivo",
+          "amount": 5
+        },
+        {
+          "method": "Transferencia",
+          "amount": 5
         }
       ],
       "exchangeRate": 535.3853
