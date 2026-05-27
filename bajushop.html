@@ -23,26 +23,26 @@
         .modal { transition: opacity 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; }
 
-        /* Mobile: cards ~30% smaller, cart gets more space */
+        /* Mobile: 3×3 grid, compact cart, search smaller */
         @media (max-width: 1023px) {
             #pos-product-grid {
                 gap: 0.3rem !important;
             }
             #pos-product-grid > div {
-                padding: 0.25rem !important;
-                height: 3.4rem !important;
+                padding: 0.2rem !important;
+                height: 3.5rem !important;
                 border-radius: 0.4rem !important;
             }
             #pos-product-grid > div h4 {
-                font-size: 0.55rem !important;
-                line-height: 1 !important;
+                font-size: 0.6rem !important;
+                line-height: 1.1 !important;
             }
             #pos-product-grid > div p {
-                font-size: 0.45rem !important;
+                font-size: 0.4rem !important;
                 margin-top: 0 !important;
             }
             #pos-product-grid > div .font-bold {
-                font-size: 0.55rem !important;
+                font-size: 0.7rem !important;
             }
             #pos-product-grid > div .text-xs {
                 font-size: 0.4rem !important;
@@ -52,17 +52,30 @@
                 padding: 0.02rem 0.2rem !important;
             }
             #pos-product-grid > div .mt-2 {
-                margin-top: 0.05rem !important;
+                margin-top: 0 !important;
             }
             #pos-product-grid > div .mt-1 {
                 margin-top: 0 !important;
             }
             #pos-product-grid > div i {
-                font-size: 0.65rem !important;
+                font-size: 0.55rem !important;
             }
-            /* Products area: limited height so cart gets more room */
+            /* Products area: smaller, scrollable */
             #tab-sales .lg\:col-span-2 {
-                max-height: 28vh !important;
+                max-height: 25vh !important;
+            }
+            /* Grid container: scroll for more products */
+            #tab-sales .lg\:col-span-2 .overflow-y-auto {
+                overflow-y: auto !important;
+                height: auto !important;
+            }
+            /* Grid container compact */
+            #tab-sales .lg\:col-span-2 .p-4:not(.border-b) {
+                padding: 0.2rem 0.3rem !important;
+            }
+            /* Search section compact */
+            #tab-sales .lg\:col-span-2 .border-b.p-4 {
+                padding: 0.25rem 0.5rem !important;
             }
             /* Cart takes remaining space */
             #tab-sales .lg\:col-span-1 {
@@ -70,9 +83,9 @@
             }
             /* Compact cart items */
             #cart-items > div:not(#cart-empty-message) > div {
-                padding: 0.3rem 0.4rem !important;
-                gap: 0.3rem !important;
-                margin-bottom: 0.15rem !important;
+                padding: 0.25rem 0.35rem !important;
+                gap: 0.25rem !important;
+                margin-bottom: 0.1rem !important;
             }
             #cart-items > div:not(#cart-empty-message) > div .font-medium {
                 font-size: 0.55rem !important;
@@ -81,54 +94,54 @@
                 font-size: 0.4rem !important;
             }
             #cart-items > div:not(#cart-empty-message) > div .w-7 {
-                width: 1.25rem !important;
-                height: 1.25rem !important;
+                width: 1.2rem !important;
+                height: 1.2rem !important;
             }
             #cart-items > div:not(#cart-empty-message) > div .w-7 i {
-                font-size: 0.4rem !important;
+                font-size: 0.35rem !important;
             }
             #cart-items > div:not(#cart-empty-message) > div .w-14 {
-                width: 2.5rem !important;
-                font-size: 0.5rem !important;
+                width: 2.2rem !important;
+                font-size: 0.45rem !important;
             }
             /* Compact checkout section */
             #tab-sales .lg\:col-span-1 > div:last-child {
-                padding: 0.4rem 0.5rem !important;
+                padding: 0.3rem 0.4rem !important;
             }
             #tab-sales .lg\:col-span-1 > div:last-child .text-lg {
-                font-size: 0.8rem !important;
+                font-size: 0.75rem !important;
             }
             #tab-sales .lg\:col-span-1 > div:last-child .text-2xl {
-                font-size: 1rem !important;
+                font-size: 0.9rem !important;
             }
             #tab-sales .lg\:col-span-1 > div:last-child .text-sm {
-                font-size: 0.55rem !important;
+                font-size: 0.5rem !important;
             }
             #tab-sales .lg\:col-span-1 > div:last-child .mb-2 {
-                margin-bottom: 0.15rem !important;
-            }
-            #tab-sales .lg\:col-span-1 > div:last-child .mb-4 {
-                margin-bottom: 0.2rem !important;
-            }
-            #tab-sales .lg\:col-span-1 > div:last-child .mb-1 {
                 margin-bottom: 0.1rem !important;
             }
+            #tab-sales .lg\:col-span-1 > div:last-child .mb-4 {
+                margin-bottom: 0.15rem !important;
+            }
+            #tab-sales .lg\:col-span-1 > div:last-child .mb-1 {
+                margin-bottom: 0.05rem !important;
+            }
             #tab-sales .lg\:col-span-1 > div:last-child .py-3 {
-                padding-top: 0.35rem !important;
-                padding-bottom: 0.35rem !important;
+                padding-top: 0.3rem !important;
+                padding-bottom: 0.3rem !important;
             }
             #tab-sales .lg\:col-span-1 > div:last-child .text-lg.font-bold {
-                font-size: 0.7rem !important;
+                font-size: 0.6rem !important;
             }
             /* Compact exchange rate bar */
             #tab-sales .lg\:col-span-1 .px-4.py-2 {
-                padding: 0.2rem 0.4rem !important;
+                padding: 0.15rem 0.4rem !important;
             }
-            /* Search bar 10% smaller */
+            /* Search bar smaller */
             #search-pos {
-                font-size: 0.9rem !important;
-                padding-top: 0.4rem !important;
-                padding-bottom: 0.4rem !important;
+                font-size: 0.8rem !important;
+                padding-top: 0.3rem !important;
+                padding-bottom: 0.3rem !important;
             }
         }
     </style>
