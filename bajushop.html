@@ -229,6 +229,73 @@
             #tab-inventory .text-sm.text-slate-500 {
                 font-size: 0.55rem !important;
             }
+            /* Reports section: compact for mobile */
+            #tab-reports .flex-col.sm\:flex-row.mb-6 {
+                margin-bottom: 0.4rem !important;
+            }
+            #tab-reports h2.text-2xl {
+                font-size: 1rem !important;
+            }
+            #tab-reports .gap-2.mt-2 a,
+            #tab-reports .gap-2.mt-2 button {
+                font-size: 0.6rem !important;
+                padding: 0.25rem 0.55rem !important;
+            }
+            #rpt-export-btn {
+                font-size: 0.6rem !important;
+                padding: 0.3rem 0.55rem !important;
+            }
+            #rpt-export-btn i {
+                font-size: 0.5rem !important;
+            }
+            #rpt-sales-section .p-4.border-b {
+                padding: 0.3rem 0.5rem !important;
+            }
+            #rpt-sales-section select {
+                font-size: 0.65rem !important;
+                padding: 0.25rem 0.5rem !important;
+            }
+            #rpt-sales-section .text-lg.font-bold {
+                font-size: 0.75rem !important;
+            }
+            #rpt-sales-section .px-4.py-2 {
+                padding: 0.2rem 0.5rem !important;
+            }
+            #tab-reports table th {
+                padding: 0.3rem 0.4rem !important;
+                font-size: 0.5rem !important;
+            }
+            #tab-reports table td {
+                padding: 0.25rem 0.4rem !important;
+                font-size: 0.6rem !important;
+            }
+            #tab-reports table td button {
+                padding: 0.15rem 0.3rem !important;
+                font-size: 0.5rem !important;
+            }
+            #tab-reports table td button i {
+                font-size: 0.45rem !important;
+            }
+            /* Inventory report section */
+            #rpt-inv-section .p-4.border-b {
+                padding: 0.3rem 0.5rem !important;
+            }
+            #rpt-inv-section select {
+                font-size: 0.65rem !important;
+                padding: 0.25rem 0.5rem !important;
+            }
+            #rpt-inv-section .gap-4.text-sm > span {
+                font-size: 0.6rem !important;
+            }
+            #rpt-inv-footer .px-4.py-3 {
+                padding: 0.3rem 0.5rem !important;
+            }
+            #rpt-inv-footer .text-base.font-bold {
+                font-size: 0.7rem !important;
+            }
+            #rpt-inv-footer .text-xs {
+                font-size: 0.5rem !important;
+            }
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -277,33 +344,33 @@
 
     <!-- Mobile Header & Nav (Visible only on small screens) -->
     <div class="md:hidden fixed top-0 left-0 right-0 bg-slate-900 text-white z-30 shadow-md">
-        <div class="flex justify-between items-center p-4">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-box-open text-[#9D79AF]"></i>
-                <span class="font-bold">Bajushop.ve</span>
+        <div class="flex justify-between items-center px-3 py-2">
+            <div class="flex items-center gap-1.5 min-w-0">
+                <i class="fa-solid fa-box-open text-[#9D79AF] text-sm"></i>
+                <span class="font-bold text-sm truncate">Bajushop.ve</span>
             </div>
-            <div class="flex items-center gap-1">
-                <span id="sync-status-mobile" class="text-xs text-slate-500 mr-1 truncate max-w-[80px]"></span>
-                <button onclick="syncNow()" class="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" title="Sincronizar">
-                    <i class="fa-solid fa-cloud-arrow-up text-sm"></i>
+            <div class="flex items-center gap-0.5 shrink-0">
+                <span id="sync-status-mobile" class="text-[0.55rem] text-green-400 truncate max-w-[60px] leading-none">15:14</span>
+                <button onclick="syncNow()" class="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" title="Sincronizar">
+                    <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
                 </button>
-                <button onclick="openModal('modal-settings')" class="p-2 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" title="Configurar GitHub">
-                    <i class="fa-solid fa-gear text-sm"></i>
+                <button onclick="openModal('modal-settings')" class="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition-colors" title="Configurar GitHub">
+                    <i class="fa-solid fa-gear text-xs"></i>
                 </button>
-                <button onclick="toggleMobileMenu()" class="p-2 focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                <button onclick="toggleMobileMenu()" class="p-1.5 focus:outline-none">
+                    <i class="fa-solid fa-bars text-base"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden bg-slate-800 border-t border-slate-700 pb-2 shadow-xl absolute w-full">
-            <button onclick="switchTab('dashboard'); toggleMobileMenu()" class="w-full text-left px-6 py-3 border-b border-slate-700 hover:bg-slate-700"><i class="fa-solid fa-chart-pie w-6"></i> Dashboard</button>
-            <button onclick="switchTab('inventory'); toggleMobileMenu()" class="w-full text-left px-6 py-3 border-b border-slate-700 hover:bg-slate-700"><i class="fa-solid fa-boxes-stacked w-6"></i> Inventario</button>
-            <button onclick="switchTab('sales'); toggleMobileMenu()" class="w-full text-left px-6 py-3 border-b border-slate-700 hover:bg-slate-700"><i class="fa-solid fa-cart-shopping w-6"></i> Ventas</button>
-            <button onclick="switchTab('reports'); toggleMobileMenu()" class="w-full text-left px-6 py-3 border-b border-slate-700 hover:bg-slate-700"><i class="fa-solid fa-file-invoice w-6"></i> Reportes</button>
-            <div class="border-t border-slate-700 mt-1 pt-1">
-                <button onclick="syncNow(); toggleMobileMenu()" class="w-full text-left px-6 py-3 hover:bg-slate-700 text-slate-300"><i class="fa-solid fa-cloud-arrow-up w-6"></i> Sincronizar</button>
-                <button onclick="openModal('modal-settings'); toggleMobileMenu()" class="w-full text-left px-6 py-3 hover:bg-slate-700 text-slate-300"><i class="fa-solid fa-gear w-6"></i> Configurar GitHub</button>
+        <div id="mobile-menu" class="bg-slate-800 border-t border-slate-700 shadow-xl absolute w-full hidden">
+            <button onclick="switchTab('dashboard'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 border-b border-slate-700 hover:bg-slate-700 text-sm"><i class="fa-solid fa-chart-pie w-5 text-center"></i> Dashboard</button>
+            <button onclick="switchTab('inventory'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 border-b border-slate-700 hover:bg-slate-700 text-sm"><i class="fa-solid fa-boxes-stacked w-5 text-center"></i> Inventario</button>
+            <button onclick="switchTab('sales'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 border-b border-slate-700 hover:bg-slate-700 text-sm"><i class="fa-solid fa-cart-shopping w-5 text-center"></i> Ventas</button>
+            <button onclick="switchTab('reports'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 border-b border-slate-700 hover:bg-slate-700 text-sm"><i class="fa-solid fa-file-invoice w-5 text-center"></i> Reportes</button>
+            <div class="border-t border-slate-700">
+                <button onclick="syncNow(); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 hover:bg-slate-700 text-slate-300 text-sm"><i class="fa-solid fa-cloud-arrow-up w-5 text-center"></i> Sincronizar</button>
+                <button onclick="openModal('modal-settings'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 hover:bg-slate-700 text-slate-300 text-sm"><i class="fa-solid fa-gear w-5 text-center"></i> Configurar GitHub</button>
             </div>
         </div>
     </div>
@@ -1186,13 +1253,13 @@
             const config = getGitHubConfig();
             if (!config || !config.token) {
                 setEl('sync-status', 'Sin configurar', 'text-xs text-slate-500 text-center truncate');
-                setEl('sync-status-mobile', '', 'text-xs text-slate-500 mr-1 truncate max-w-[80px]');
+                setEl('sync-status-mobile', '', 'text-[0.55rem] text-slate-500 truncate max-w-[60px] leading-none');
                 return;
             }
             const stored = localStorage.getItem(SYNC_STATUS_KEY);
             if (!stored) {
                 setEl('sync-status', 'Sin sincronizar', 'text-xs text-amber-500 text-center truncate');
-                setEl('sync-status-mobile', '', 'text-xs text-slate-500 mr-1 truncate max-w-[80px]');
+                setEl('sync-status-mobile', '', 'text-[0.55rem] text-slate-500 truncate max-w-[60px] leading-none');
                 return;
             }
             const status = JSON.parse(stored);
@@ -1200,10 +1267,10 @@
                 const d = new Date(status.lastSync);
                 const label = d.toLocaleString('es-ES', { hour: '2-digit', minute: '2-digit' });
                 setEl('sync-status', 'Última sinc: ' + d.toLocaleString('es-ES'), 'text-xs text-green-400 text-center truncate');
-                setEl('sync-status-mobile', label, 'text-xs text-green-400 mr-1 truncate max-w-[80px]');
+                setEl('sync-status-mobile', label, 'text-[0.55rem] text-green-400 truncate max-w-[60px] leading-none');
             } else {
                 setEl('sync-status', 'Error en sincronización', 'text-xs text-red-400 text-center truncate');
-                setEl('sync-status-mobile', 'Error', 'text-xs text-red-400 mr-1 truncate max-w-[80px]');
+                setEl('sync-status-mobile', 'Error', 'text-[0.55rem] text-red-400 truncate max-w-[60px] leading-none');
             }
         }
 
