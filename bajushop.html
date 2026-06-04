@@ -276,6 +276,24 @@
             #tab-reports table td button i {
                 font-size: 0.45rem !important;
             }
+            /* Push sales table down on mobile */
+            #rpt-sales-section .table-container {
+                margin-top: 0.5rem !important;
+            }
+            /* Dashboard stat numbers 15% smaller on mobile */
+            #tab-dashboard .gap-6.mb-8 > div .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            #tab-dashboard .gap-6.mb-8 > div .text-xl {
+                font-size: 0.85rem !important;
+            }
+            #tab-dashboard .gap-6.mb-8 > div .p-4.rounded-full {
+                padding: 0.6rem !important;
+                margin-right: 0.6rem !important;
+            }
+            #tab-dashboard .gap-6.mb-8 > div .p-4.rounded-full i {
+                font-size: 0.9rem !important;
+            }
             /* Inventory report section */
             #rpt-inv-section .p-4.border-b {
                 padding: 0.3rem 0.5rem !important;
@@ -376,7 +394,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden pt-16 md:pt-0 bg-slate-50 relative">
+    <main class="flex-1 flex flex-col h-screen overflow-hidden pt-[4.5rem] md:pt-0 bg-slate-50 relative">
         <!-- Overlay for toast notifications -->
         <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
