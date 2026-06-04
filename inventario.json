@@ -1632,18 +1632,5 @@
       "exchangeRate": 535.3853
     }
   ],
-  "combos": [
-    {
-      "id": "combo_mpzuou6ot9wn0wbrb",
-      "code": "C00001",
-      "name": "combo",
-      "price": 5,
-      "items": [
-        {
-          "productId": "mpd33wis6sklou95a55",
-          "qty": 1
-        }
-      ]
-    }
-  ]
+  "combos": []
 }
