@@ -1632,5 +1632,18 @@
       "exchangeRate": 535.3853
     }
   ],
-  "combos": []
+  "combos": [
+    {
+      "id": "combo_mpzuoe6ofjyo75q6a",
+      "code": "",
+      "name": "combo ",
+      "price": 3,
+      "items": [
+        {
+          "productId": "mpd33wis6dl2eoj4vik",
+          "qty": 1
+        }
+      ]
+    }
+  ]
 }
