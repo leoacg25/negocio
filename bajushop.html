@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .tab-content.active.flex { display: flex; }
+        .tab-content { display: none !important; }
+        .tab-content.active { display: block !important; }
+        .tab-content.active.flex { display: flex !important; }
         /* Custom scrollbar for tables */
         .table-container::-webkit-scrollbar { width: 8px; height: 8px; }
         .table-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
@@ -142,6 +142,92 @@
                 font-size: 0.8rem !important;
                 padding-top: 0.3rem !important;
                 padding-bottom: 0.3rem !important;
+            }
+            /* Inventory section: compact for mobile */
+            #tab-inventory .flex.gap-2.flex-wrap a,
+            #tab-inventory .flex.gap-2.flex-wrap button {
+                font-size: 0.65rem !important;
+                padding: 0.35rem 0.6rem !important;
+            }
+            #tab-inventory .flex.gap-2.flex-wrap i {
+                font-size: 0.55rem !important;
+            }
+            #tab-inventory .px-5.py-2\.5 {
+                padding: 0.35rem 0.65rem !important;
+            }
+            /* Toggle buttons (Productos/Combos) */
+            #tab-inventory .gap-2.mb-4 button,
+            #tab-inventory .gap-2.mb-4.shrink-0 button {
+                padding: 0.3rem 0.65rem !important;
+                font-size: 0.65rem !important;
+            }
+            /* Search + filter row more compact */
+            #tab-inventory .sm\:flex-row.gap-4.p-4 {
+                padding: 0.35rem 0.5rem !important;
+                gap: 0.4rem !important;
+            }
+            #tab-inventory .sm\:flex-row.gap-4.p-4 input {
+                font-size: 0.7rem !important;
+                padding: 0.3rem 0.4rem !important;
+                padding-left: 1.8rem !important;
+            }
+            #tab-inventory .sm\:flex-row.gap-4.p-4 select {
+                font-size: 0.65rem !important;
+                padding: 0.25rem 0.5rem !important;
+            }
+            #tab-inventory .sm\:flex-row.gap-4.p-4 i {
+                font-size: 0.6rem !important;
+                left: 0.5rem !important;
+            }
+            #tab-inventory .sm\:flex-row.gap-4.p-4 .sm\:w-64 {
+                width: 10rem !important;
+            }
+            /* Table compact */
+            #tab-inventory table th {
+                padding: 0.3rem 0.4rem !important;
+                font-size: 0.5rem !important;
+            }
+            #tab-inventory table td {
+                padding: 0.25rem 0.4rem !important;
+                font-size: 0.6rem !important;
+            }
+            #tab-inventory table td .px-2\.5 {
+                padding: 0.1rem 0.4rem !important;
+                font-size: 0.5rem !important;
+            }
+            /* Table action buttons */
+            #tab-inventory table td button {
+                padding: 0.2rem 0.35rem !important;
+                font-size: 0.5rem !important;
+            }
+            #tab-inventory table td button i {
+                font-size: 0.45rem !important;
+            }
+            /* Combo section header */
+            #tab-inventory .rounded-t-xl.flex.justify-between h3 {
+                font-size: 0.8rem !important;
+            }
+            #tab-inventory .rounded-t-xl.flex.justify-between button {
+                font-size: 0.65rem !important;
+                padding: 0.3rem 0.65rem !important;
+            }
+            #tab-inventory .rounded-t-xl.flex.justify-between button i {
+                font-size: 0.55rem !important;
+            }
+            /* Inventory footer compact */
+            #tab-inventory .px-4.py-3.shrink-0,
+            #inv-footer {
+                padding: 0.35rem 0.5rem !important;
+            }
+            #tab-inventory .md\:pr-16.md\:min-w-\[800px\] {
+                padding-right: 0 !important;
+            }
+            #tab-inventory .text-base.font-bold {
+                font-size: 0.75rem !important;
+            }
+            /* "Mostrando X productos" compact */
+            #tab-inventory .text-sm.text-slate-500 {
+                font-size: 0.55rem !important;
             }
         }
     </style>
@@ -333,75 +419,112 @@
 
             <!-- INVENTORY TAB -->
             <div id="tab-inventory" class="tab-content max-w-6xl mx-auto h-full flex flex-col">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 shrink-0">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 shrink-0">
                     <div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Gestión de Inventario</h2>
-                        <p class="text-slate-500 mt-1">Añade, edita y controla tus productos.</p>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Gesti&oacute;n de Inventario</h2>
+                        <p class="text-slate-500 mt-1">A&ntilde;ade, edita y controla tus productos y combos.</p>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 flex-wrap">
                         <button onclick="document.getElementById('file-import').click()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-4 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2">
                             <i class="fa-solid fa-file-import"></i> Importar
                         </button>
                         <button onclick="exportInventory()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-4 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2">
                             <i class="fa-solid fa-file-export"></i> Exportar
                         </button>
-                        <button onclick="openModal('modal-add-product')" class="bg-[#B191C1] hover:bg-[#9D79AF] text-white px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2 shadow-sm">
+                        <button id="btn-new-product" onclick="openModal('modal-add-product')" class="bg-[#B191C1] hover:bg-[#9D79AF] text-white px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2 shadow-sm">
                             <i class="fa-solid fa-plus"></i> Nuevo Producto
                         </button>
                     </div>
                     <input type="file" id="file-import" accept=".csv,.json" class="hidden" onchange="importInventory(event)">
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col flex-1 min-h-[400px]">
-                    <div class="p-4 border-b border-slate-100 flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50/50 rounded-t-xl shrink-0">
-                        <div class="flex gap-3 w-full sm:w-auto items-center">
-                            <div class="relative w-full sm:w-64">
-                                <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
-                                <input type="text" id="search-inventory" placeholder="Buscar producto..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow bg-white">
+                <div class="flex gap-2 mb-4 shrink-0">
+                    <button id="toggle-products" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#B191C1] text-white shadow-sm" onclick="showInventorySection('products')">Productos</button>
+                    <button id="toggle-combos" class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 hover:bg-slate-200" onclick="showInventorySection('combos')">Combos</button>
+                </div>
+
+                <div id="inv-product-section" class="flex flex-col flex-1 min-h-0">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col flex-1 min-h-[400px]">
+                        <div class="p-4 border-b border-slate-100 flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50/50 rounded-t-xl shrink-0">
+                            <div class="flex gap-3 w-full sm:w-auto items-center">
+                                <div class="relative w-full sm:w-64">
+                                    <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                                    <input type="text" id="search-inventory" placeholder="Buscar producto..." class="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow bg-white">
+                                </div>
+                                <select id="filter-category" class="border border-slate-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm">
+                                    <option value="">Todas las categor&iacute;as</option>
+                                </select>
                             </div>
-                            <select id="filter-category" class="border border-slate-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm">
-                                <option value="">Todas las categorías</option>
-                            </select>
+                            <div class="text-sm text-slate-500">
+                                Mostrando <span id="inventory-count" class="font-medium text-slate-800">0</span> productos
+                            </div>
                         </div>
-                        <div class="text-sm text-slate-500">
-                            Mostrando <span id="inventory-count" class="font-medium text-slate-800">0</span> productos
+                        
+                        <div class="flex-1 overflow-auto table-container">
+                            <table class="w-full text-left border-collapse min-w-[800px]">
+                                <thead class="bg-slate-50 sticky top-0 z-10 shadow-sm">
+                                    <tr>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">ID / SKU</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Nombre</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Categor&iacute;a</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Precio</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Stock</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-center">Estado</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventory-table-body" class="divide-y divide-slate-100">
+                                </tbody>
+                            </table>
+                            <div id="inventory-empty-state" class="hidden flex flex-col items-center justify-center p-12 text-slate-400 h-64">
+                                <i class="fa-solid fa-box-open text-4xl mb-3 text-slate-300"></i>
+                                <p class="text-lg font-medium text-slate-600">No hay productos</p>
+                                <p class="text-sm mt-1">A&ntilde;ade tu primer producto para empezar.</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="flex-1 overflow-auto table-container">
-                        <table class="w-full text-left border-collapse min-w-[800px]">
-                            <thead class="bg-slate-50 sticky top-0 z-10 shadow-sm">
-                                <tr>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">ID / SKU</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Nombre</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Categoría</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Precio</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Stock</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-center">Estado</th>
-                                    <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="inventory-table-body" class="divide-y divide-slate-100">
-                                <!-- Filas de inventario generadas por JS -->
-                            </tbody>
-                        </table>
-                        <div id="inventory-empty-state" class="hidden flex flex-col items-center justify-center p-12 text-slate-400 h-64">
-                            <i class="fa-solid fa-box-open text-4xl mb-3 text-slate-300"></i>
-                            <p class="text-lg font-medium text-slate-600">No hay productos</p>
-                            <p class="text-sm mt-1">Añade tu primer producto para empezar.</p>
+                    <div id="inv-footer" class="hidden border-t-2 border-slate-200 bg-slate-50 px-4 py-3 shrink-0 rounded-b-xl">
+                        <div class="flex justify-between md:justify-end items-center gap-6 md:gap-10 md:pr-16 md:min-w-[800px]">
+                            <div class="md:hidden text-sm font-semibold text-slate-700">Valorizaci&oacute;n</div>
+                            <div class="text-right">
+                                <span class="text-xs text-slate-500 block">Valor Total</span>
+                                <span class="text-base font-bold text-[#B191C1]" id="inv-total-value">$0.00</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs text-slate-500 block">Unidades</span>
+                                <span class="text-base font-bold text-slate-800" id="inv-total-stock">0</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="inv-footer" class="hidden border-t-2 border-slate-200 bg-slate-50 px-4 py-3 shrink-0 rounded-b-xl">
-                    <div class="flex justify-between md:justify-end items-center gap-6 md:gap-10 md:pr-16 md:min-w-[800px]">
-                        <div class="md:hidden text-sm font-semibold text-slate-700">Valorización</div>
-                        <div class="text-right">
-                            <span class="text-xs text-slate-500 block">Valor Total</span>
-                            <span class="text-base font-bold text-[#B191C1]" id="inv-total-value">$0.00</span>
+
+                <div id="inv-combo-section" class="hidden flex flex-col flex-1 min-h-0">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col flex-1 min-h-[400px]">
+                        <div class="p-4 border-b border-slate-100 bg-slate-50/50 rounded-t-xl flex justify-between items-center shrink-0">
+                            <h3 class="text-lg font-bold text-slate-800">Gesti&oacute;n de Combos</h3>
+                            <button onclick="openModal('modal-add-combo')" class="bg-[#B191C1] hover:bg-[#9D79AF] text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 shadow-sm text-sm">
+                                <i class="fa-solid fa-plus"></i> Nuevo Combo
+                            </button>
                         </div>
-                        <div class="text-right">
-                            <span class="text-xs text-slate-500 block">Unidades</span>
-                            <span class="text-base font-bold text-slate-800" id="inv-total-stock">0</span>
+                        <div class="flex-1 overflow-auto table-container">
+                            <table class="w-full text-left border-collapse min-w-[800px]">
+                                <thead class="bg-slate-50 sticky top-0 z-10 shadow-sm">
+                                    <tr>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">C&oacute;digo</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Nombre</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200">Items</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Precio</th>
+                                        <th class="py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200 text-right">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="combo-table-body" class="divide-y divide-slate-100">
+                                </tbody>
+                            </table>
+                            <div id="combo-empty-state" class="flex flex-col items-center justify-center p-12 text-slate-400 h-64">
+                                <i class="fa-solid fa-cubes text-4xl mb-3 text-slate-300"></i>
+                                <p class="text-lg font-medium text-slate-600">No hay combos</p>
+                                <p class="text-sm mt-1">Crea tu primer combo para agrupar productos.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -742,6 +865,61 @@
         </div>
     </div>
 
+    <!-- Add/Edit Combo Modal -->
+    <div id="modal-add-combo" class="modal fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-lg mx-4 transform scale-95">
+            <div class="flex justify-between items-center p-5 border-b border-slate-100">
+                <h3 class="text-xl font-bold text-slate-800" id="modal-combo-title">Crear Combo</h3>
+                <button onclick="closeModal('modal-add-combo')" class="text-slate-400 hover:text-slate-600 focus:outline-none rounded-full p-1 hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-xmark text-xl w-6 h-6 flex items-center justify-center"></i>
+                </button>
+            </div>
+            <form id="form-combo" class="p-5 space-y-4">
+                <input type="hidden" id="combo-id">
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">C&oacute;digo</label>
+                        <input type="text" id="combo-code" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow uppercase" placeholder="Ej: COD-0001">
+                        <label class="flex items-center gap-1.5 mt-1 text-xs text-slate-500 cursor-pointer">
+                            <input type="checkbox" id="combo-auto-code" checked class="w-3.5 h-3.5 rounded border-slate-300 text-[#B191C1] focus:ring-[#B191C1]">
+                            Auto-generar c&oacute;digo
+                        </label>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nombre <span class="text-red-500">*</span></label>
+                        <input type="text" id="combo-name" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow" placeholder="Ej: Bodys pack">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Precio del Combo ($) <span class="text-red-500">*</span></label>
+                    <input type="number" id="combo-price" required min="0" step="0.01" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow text-right" placeholder="0.00">
+                </div>
+
+                <div class="border-t border-slate-100 pt-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <label class="text-sm font-bold text-slate-700">Productos del Combo</label>
+                        <button type="button" onclick="addComboProductRow()" class="text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-medium transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Agregar Producto
+                        </button>
+                    </div>
+                    <div id="combo-products-container" class="space-y-2">
+                        <div class="text-sm text-slate-400 text-center py-4" id="combo-products-empty">
+                            <i class="fa-solid fa-cube text-lg mb-1"></i>
+                            <p>No hay productos agregados. Haz clic en "Agregar Producto".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-3 border-t border-slate-100">
+                    <button type="button" onclick="closeModal('modal-add-combo')" class="px-4 py-2 text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg font-medium transition-colors">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 bg-[#B191C1] hover:bg-[#9D79AF] text-white rounded-lg font-medium transition-colors shadow-sm">Guardar Combo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Receipt Modal -->
     <div id="modal-receipt" class="modal fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center opacity-0 pointer-events-none">
         <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-sm mx-4 transform scale-95 overflow-hidden flex flex-col max-h-[90vh]">
@@ -825,6 +1003,7 @@
         // Inicializar datos
         let products = JSON.parse(localStorage.getItem('stockflow_products')) || initialProducts;
         let sales = JSON.parse(localStorage.getItem('stockflow_sales')) || [];
+        let combos = JSON.parse(localStorage.getItem('stockflow_combos')) || [];
         let cart = [];
         let chartPeriod = 'week'; // 'week' | 'month'
         let salesChartInstance = null;
@@ -934,6 +1113,7 @@
         function saveData() {
             localStorage.setItem('stockflow_products', JSON.stringify(products));
             localStorage.setItem('stockflow_sales', JSON.stringify(sales));
+            localStorage.setItem('stockflow_combos', JSON.stringify(combos));
             if (!_skipSync) queueSync();
         }
 
@@ -1051,6 +1231,9 @@
                 if (json.sales && Array.isArray(json.sales)) {
                     sales = json.sales;
                 }
+                if (json.combos && Array.isArray(json.combos)) {
+                    combos = json.combos;
+                }
                 _skipSync = true;
                 saveData();
                 _skipSync = false;
@@ -1079,7 +1262,7 @@
             btn.disabled = true;
 
             try {
-                const payload = { products, sales };
+                const payload = { products, sales, combos };
                 const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/inventario.json`;
 
                 // Get file metadata (need sha for update)
@@ -1299,6 +1482,14 @@
                     document.getElementById('prod-profit-pct').value = '';
                     document.getElementById('prod-offer-enabled').checked = false;
                     document.getElementById('prod-offer-enabled').dispatchEvent(new Event('change'));
+                }
+                if(id === 'modal-add-combo') {
+                    document.getElementById('form-combo').reset();
+                    document.getElementById('combo-id').value = '';
+                    document.getElementById('modal-combo-title').textContent = 'Crear Combo';
+                    document.getElementById('combo-auto-code').checked = true;
+                    updateComboCodeField();
+                    document.getElementById('combo-products-container').innerHTML = '<div class="text-sm text-slate-400 text-center py-4" id="combo-products-empty"><i class="fa-solid fa-cube text-lg mb-1"></i><p>No hay productos agregados. Haz clic en "Agregar Producto".</p></div>';
                 }
             }, 300); // Matches CSS transition time
         }
@@ -1630,27 +1821,268 @@
         }
 
 
+        // --- STREAMING_CHUNK:Combos Functions ---
+        function showInventorySection(section) {
+            const prodSection = document.getElementById('inv-product-section');
+            const comboSec = document.getElementById('inv-combo-section');
+            const btnProd = document.getElementById('toggle-products');
+            const btnComb = document.getElementById('toggle-combos');
+            if (section === 'products') {
+                prodSection.classList.remove('hidden');
+                comboSec.classList.add('hidden');
+                btnProd.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#B191C1] text-white shadow-sm';
+                btnComb.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 hover:bg-slate-200';
+            } else {
+                prodSection.classList.add('hidden');
+                comboSec.classList.remove('hidden');
+                btnProd.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-slate-100 text-slate-600 hover:bg-slate-200';
+                btnComb.className = 'px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#B191C1] text-white shadow-sm';
+                renderCombos();
+            }
+        }
+
+        function renderCombos() {
+            const tbody = document.getElementById('combo-table-body');
+            const emptyState = document.getElementById('combo-empty-state');
+            if (combos.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                document.querySelector('#inv-combo-section table').classList.add('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+            document.querySelector('#inv-combo-section table').classList.remove('hidden');
+            let html = '';
+            combos.forEach(c => {
+                const itemsSummary = c.items.map(item => {
+                    const p = products.find(pr => pr.id === item.productId);
+                    return (p ? p.name : '?') + ' x' + item.qty;
+                }).join(', ');
+                html += `
+                    <tr class="hover:bg-slate-50 transition-colors group">
+                        <td class="py-3 px-4 border-b border-slate-100 font-mono text-xs text-slate-500">${c.code}</td>
+                        <td class="py-3 px-4 border-b border-slate-100 font-medium text-slate-800">${c.name}</td>
+                        <td class="py-3 px-4 border-b border-slate-100 text-sm text-slate-500 max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
+                        <td class="py-3 px-4 border-b border-slate-100 text-right text-sm font-semibold text-slate-700">${formatMoney(c.price)}</td>
+                        <td class="py-3 px-4 border-b border-slate-100 text-right">
+                            <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button onclick="editCombo('${c.id}')" class="p-1.5 text-[#B191C1] hover:bg-[#F0E8F3] rounded" title="Editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button onclick="deleteCombo('${c.id}')" class="p-1.5 text-red-500 hover:bg-red-50 rounded" title="Eliminar">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        }
+
+        function generateComboId() {
+            return 'combo_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+        }
+
+        function generateComboCode() {
+            let maxNum = 0;
+            combos.forEach(c => {
+                const m = c.code.match(/^C(\d+)$/);
+                if (m) {
+                    const n = parseInt(m[1], 10);
+                    if (n > maxNum) maxNum = n;
+                }
+            });
+            return 'C' + String(maxNum + 1).padStart(5, '0');
+        }
+
+        function updateComboCodeField() {
+            const autoGen = document.getElementById('combo-auto-code').checked;
+            const field = document.getElementById('combo-code');
+            field.readOnly = autoGen;
+            if (autoGen) {
+                field.className = 'w-full px-3 py-2 border border-slate-200 rounded-lg bg-slate-100 text-slate-500 uppercase cursor-not-allowed';
+                field.value = generateComboCode();
+            } else {
+                field.className = 'w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B191C1] focus:border-transparent transition-shadow uppercase';
+                field.value = '';
+                field.focus();
+            }
+        }
+
+        document.getElementById('combo-auto-code').addEventListener('change', updateComboCodeField);
+
+        let comboProductRowCount = 0;
+
+        function addComboProductRow(data) {
+            const container = document.getElementById('combo-products-container');
+            const emptyMsg = container.querySelector('#combo-products-empty');
+            if (emptyMsg) emptyMsg.remove();
+
+            const rowId = 'combo-row-' + (comboProductRowCount++);
+            const selectedId = data ? data.productId : '';
+            const qtyVal = data ? data.qty : 1;
+
+            let options = '<option value="">Seleccionar producto</option>';
+            products.forEach(p => {
+                const sel = p.id === selectedId ? ' selected' : '';
+                options += `<option value="${p.id}"${sel}>${p.name} (${p.sku}) - ${formatMoney(p.price)}</option>`;
+            });
+
+            const div = document.createElement('div');
+            div.id = rowId;
+            div.className = 'flex items-center gap-2 p-2 border border-slate-200 rounded-lg bg-slate-50';
+            div.innerHTML = `
+                <div class="flex-1">
+                    <select class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm combo-product-select">${options}</select>
+                </div>
+                <div class="w-16">
+                    <input type="number" min="1" value="${qtyVal}" class="w-full border border-slate-300 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#B191C1] text-sm text-right combo-product-qty">
+                </div>
+                <div class="text-xs text-slate-500 w-16 text-right combo-product-ref"></div>
+                <button type="button" onclick="removeComboProductRow('${rowId}')" class="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors" title="Quitar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            `;
+
+            const select = div.querySelector('.combo-product-select');
+            const ref = div.querySelector('.combo-product-ref');
+            if (selectedId) {
+                const p = products.find(pr => pr.id === selectedId);
+                if (p) ref.textContent = formatMoney(p.price) + ' c/u';
+            }
+            select.addEventListener('change', function() {
+                const p = products.find(pr => pr.id === this.value);
+                ref.textContent = p ? formatMoney(p.price) + ' c/u' : '';
+            });
+
+            container.appendChild(div);
+        }
+
+        function removeComboProductRow(rowId) {
+            const el = document.getElementById(rowId);
+            if (el) el.remove();
+            const container = document.getElementById('combo-products-container');
+            if (!container.querySelector('.combo-product-select')) {
+                container.innerHTML = '<div class="text-sm text-slate-400 text-center py-4" id="combo-products-empty"><i class="fa-solid fa-cube text-lg mb-1"></i><p>No hay productos agregados. Haz clic en "Agregar Producto".</p></div>';
+            }
+        }
+
+        document.getElementById('form-combo').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const id = document.getElementById('combo-id').value;
+            const code = document.getElementById('combo-code').value;
+            const name = document.getElementById('combo-name').value;
+            const price = parseFloat(document.getElementById('combo-price').value);
+
+            const rows = document.querySelectorAll('#combo-products-container .combo-product-select');
+            const items = [];
+            let valid = true;
+            rows.forEach(select => {
+                const productId = select.value;
+                const qtyInput = select.closest('.flex').querySelector('.combo-product-qty');
+                const qty = parseInt(qtyInput.value) || 1;
+                if (!productId) {
+                    valid = false;
+                    return;
+                }
+                const existing = items.find(i => i.productId === productId);
+                if (existing) {
+                    existing.qty += qty;
+                } else {
+                    items.push({ productId, qty });
+                }
+            });
+
+            if (!valid || items.length === 0) {
+                showToast('Debes agregar al menos un producto v&aacute;lido al combo', 'error');
+                return;
+            }
+
+            const isDuplicateCode = combos.some(c => c.code === code && c.id !== id);
+            if (isDuplicateCode) {
+                showToast('Ya existe un combo con este c&oacute;digo', 'error');
+                return;
+            }
+
+            if (id) {
+                const index = combos.findIndex(c => c.id === id);
+                if (index !== -1) {
+                    combos[index] = { ...combos[index], code, name, price, items };
+                    showToast('Combo actualizado correctamente');
+                }
+            } else {
+                combos.push({ id: generateComboId(), code, name, price, items });
+                showToast('Combo creado correctamente');
+            }
+
+            saveData();
+            closeModal('modal-add-combo');
+            renderCombos();
+        });
+
+        function editCombo(id) {
+            const combo = combos.find(c => c.id === id);
+            if (!combo) return;
+
+            document.getElementById('modal-combo-title').textContent = 'Editar Combo';
+            document.getElementById('combo-id').value = combo.id;
+            document.getElementById('combo-code').value = combo.code;
+            document.getElementById('combo-name').value = combo.name;
+            document.getElementById('combo-price').value = combo.price;
+
+            const isAuto = /^C\d{5}$/.test(combo.code);
+            document.getElementById('combo-auto-code').checked = isAuto;
+            updateComboCodeField();
+            if (!isAuto) {
+                document.getElementById('combo-code').value = combo.code;
+            }
+
+            const container = document.getElementById('combo-products-container');
+            container.innerHTML = '';
+            comboProductRowCount = 0;
+            combo.items.forEach(item => addComboProductRow(item));
+
+            openModal('modal-add-combo');
+        }
+
+        function deleteCombo(id) {
+            const index = combos.findIndex(c => c.id === id);
+            if (index !== -1) {
+                const name = combos[index].name;
+                combos.splice(index, 1);
+                saveData();
+                renderCombos();
+                showToast('Combo "' + name + '" eliminado');
+            }
+        }
+
         // --- STREAMING_CHUNK:Implementing Point of Sale (POS) Logic ---
         function renderPOSProducts(searchTerm = '') {
             const grid = document.getElementById('pos-product-grid');
             const emptyState = document.getElementById('pos-empty-state');
             
-            // Solo mostrar productos con stock > 0
             const availableProducts = products.filter(p => parseInt(p.stock) > 0);
-            
-            const filtered = availableProducts.filter(p => {
-                const term = searchTerm.toLowerCase();
+            const term = searchTerm.toLowerCase();
+
+            const filteredProducts = availableProducts.filter(p => {
                 return p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term);
             });
 
-            if (filtered.length === 0) {
+            const filteredCombos = combos.filter(c => {
+                return c.name.toLowerCase().includes(term) || c.code.toLowerCase().includes(term);
+            });
+
+            const totalItems = filteredProducts.length + filteredCombos.length;
+
+            if (totalItems === 0) {
                 grid.innerHTML = '';
                 emptyState.classList.remove('hidden');
             } else {
                 emptyState.classList.add('hidden');
                 let html = '';
-                filtered.forEach(p => {
-                    // Determinar si ya está en el carrito para mostrar indicador
+                filteredProducts.forEach(p => {
                     const cartItem = cart.find(item => item.id === p.id);
                     const qtyInCart = cartItem ? cartItem.qty : 0;
                     const stockLeft = p.stock - qtyInCart;
@@ -1671,6 +2103,24 @@
                             <div class="mt-2 flex justify-between items-end">
                                 <span class="font-bold text-slate-800">${formatMoney(p.price)}</span>
                                 <span class="text-xs ${isSoldOut ? 'text-red-500 font-bold' : 'text-slate-500'}">${isSoldOut ? 'Agotado' : `Disp: ${stockLeft}`}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                filteredCombos.forEach(c => {
+                    const cartItem = cart.find(item => item.type === 'combo' && item.comboId === c.id);
+                    const qtyInCart = cartItem ? cartItem.qty : 0;
+                    html += `
+                        <div onclick="addComboToCart('${c.id}')" class="bg-white border border-slate-200 hover:border-[#B191C1] cursor-pointer hover:shadow-md rounded-xl p-4 flex flex-col transition-all relative overflow-hidden h-32 select-none group">
+                            ${qtyInCart > 0 ? `<div class="absolute top-0 right-0 bg-[#B191C1] text-white text-xs font-bold px-2 py-1 rounded-bl-lg">${qtyInCart} en carrito</div>` : ''}
+                            <div class="absolute top-0 left-0 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-br-lg">Combo</div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-slate-800 text-sm leading-tight line-clamp-2 group-hover:text-[#B191C1] transition-colors">${c.name}</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">${c.code}</p>
+                            </div>
+                            <div class="mt-2 flex justify-between items-end">
+                                <span class="font-bold text-slate-800">${formatMoney(c.price)}</span>
+                                <span class="text-xs text-slate-500">Combo</span>
                             </div>
                         </div>
                     `;
@@ -1723,25 +2173,49 @@
             }
 
             renderCart();
-            // Re-render grid to update "in cart" badges and available stock visual
             renderPOSProducts(document.getElementById('search-pos').value);
         }
 
-        function updateCartQty(id, delta) {
-            const itemIndex = cart.findIndex(item => item.id === id);
+        function addComboToCart(comboId) {
+            const combo = combos.find(c => c.id === comboId);
+            if (!combo) return;
+
+            const existingItem = cart.find(item => item.type === 'combo' && item.comboId === comboId);
+
+            if (existingItem) {
+                existingItem.qty++;
+            } else {
+                cart.push({
+                    type: 'combo',
+                    comboId: combo.id,
+                    name: combo.name,
+                    price: combo.price,
+                    qty: 1
+                });
+            }
+
+            renderCart();
+            renderPOSProducts(document.getElementById('search-pos').value);
+        }
+
+        function updateCartQty(id, delta, isCombo = false) {
+            const itemIndex = cart.findIndex(item => isCombo ? (item.type === 'combo' && item.comboId === id) : item.id === id);
             if (itemIndex === -1) return;
 
-            const product = products.find(p => p.id === id);
             const item = cart[itemIndex];
-
             const newQty = item.qty + delta;
 
             if (newQty <= 0) {
                 cart.splice(itemIndex, 1);
-            } else if (newQty > product.stock) {
-                showToast(`Stock máximo alcanzado (${product.stock})`, 'warning');
-                return;
+            } else if (isCombo) {
+                item.qty = newQty;
             } else {
+                const product = products.find(p => p.id === id);
+                if (!product) return;
+                if (newQty > product.stock) {
+                    showToast(`Stock máximo alcanzado (${product.stock})`, 'warning');
+                    return;
+                }
                 item.qty = newQty;
             }
 
@@ -1793,22 +2267,34 @@
                 let html = '';
                 
                 cart.forEach(item => {
-                    const product = products.find(p => p.id === item.id);
-                    const pricing = product ? formatPriceWithOffer(product, item.qty) : { total: item.price * item.qty, hasOffer: false, savings: 0, unitPrice: item.price };
-                    const lineTotal = pricing.total;
+                    let lineTotal, unitPrice, hasOffer, savings;
+                    
+                    if (item.type === 'combo') {
+                        unitPrice = item.price;
+                        lineTotal = item.price * item.qty;
+                        hasOffer = false;
+                        savings = 0;
+                    } else {
+                        const product = products.find(p => p.id === item.id);
+                        const pricing = product ? formatPriceWithOffer(product, item.qty) : { total: item.price * item.qty, hasOffer: false, savings: 0, unitPrice: item.price };
+                        lineTotal = pricing.total;
+                        hasOffer = pricing.hasOffer;
+                        savings = pricing.savings;
+                        unitPrice = pricing.unitPrice;
+                    }
                     subtotal += lineTotal;
                     
                     html += `
                         <div class="flex items-center gap-2 px-2.5 py-2 border-b border-slate-100 last:border-0 bg-white rounded-md mb-0.5 shadow-sm">
                             <div class="flex-1 min-w-0">
-                                <div class="font-medium text-slate-800 text-xs leading-tight truncate">${item.name}</div>
-                                <div class="text-[10px] text-slate-500">${formatMoney(pricing.unitPrice)} c/u</div>
+                                <div class="font-medium text-slate-800 text-xs leading-tight truncate">${item.name}${item.type === 'combo' ? ' <span class="text-purple-500 font-bold">[Combo]</span>' : ''}</div>
+                                <div class="text-[10px] text-slate-500">${formatMoney(unitPrice)} c/u</div>
                             </div>
-                            ${pricing.hasOffer ? `<span class="text-[10px] text-green-600 font-medium shrink-0">-${formatMoney(pricing.savings)}</span>` : ''}
+                            ${hasOffer ? `<span class="text-[10px] text-green-600 font-medium shrink-0">-${formatMoney(savings)}</span>` : ''}
                             <div class="flex items-center bg-slate-100 rounded-md shrink-0">
-                                <button onclick="updateCartQty('${item.id}', -1)" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-l-md transition-colors"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                                <button onclick="updateCartQty('${item.type === 'combo' ? item.comboId : item.id}', -1, ${item.type === 'combo'})" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-l-md transition-colors"><i class="fa-solid fa-minus text-[10px]"></i></button>
                                 <span class="w-7 text-center font-semibold text-slate-800 text-xs">${item.qty}</span>
-                                <button onclick="updateCartQty('${item.id}', 1)" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-r-md transition-colors"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                                <button onclick="updateCartQty('${item.type === 'combo' ? item.comboId : item.id}', 1, ${item.type === 'combo'})" class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200 rounded-r-md transition-colors"><i class="fa-solid fa-plus text-[10px]"></i></button>
                             </div>
                             <span class="font-semibold text-slate-800 text-xs shrink-0 w-14 text-right">${formatMoney(lineTotal)}</span>
                         </div>
@@ -1831,6 +2317,9 @@
         // --- STREAMING_CHUNK:Processing Sales and Receipts ---
         function getCartTotal() {
             return cart.reduce((sum, item) => {
+                if (item.type === 'combo') {
+                    return sum + item.price * item.qty;
+                }
                 const product = products.find(p => p.id === item.id);
                 return sum + (product ? calculateOfferTotal(product, item.qty) : item.price * item.qty);
             }, 0);
@@ -1922,6 +2411,14 @@
                 id: 'VNT-' + Date.now().toString().slice(-6),
                 date: new Date().toISOString(),
                 items: JSON.parse(JSON.stringify(cart.map(item => {
+                    if (item.type === 'combo') {
+                        const combo = combos.find(c => c.id === item.comboId);
+                        const comboItems = combo ? combo.items.map(ci => {
+                            const p = products.find(pr => pr.id === ci.productId);
+                            return { productId: ci.productId, name: p ? p.name : '?', qty: ci.qty * item.qty, price: p ? p.price : 0 };
+                        }) : [];
+                        return { type: 'combo', comboId: item.comboId, name: item.name, qty: item.qty, price: item.price, lineTotal: item.price * item.qty, comboItems };
+                    }
                     const product = products.find(p => p.id === item.id);
                     const pricing = product ? formatPriceWithOffer(product, item.qty) : { total: item.price * item.qty, hasOffer: false };
                     return { ...item, lineTotal: pricing.total, hasOffer: pricing.hasOffer };
@@ -1936,9 +2433,21 @@
 
             // Actualizar inventario
             cart.forEach(cartItem => {
-                const productIndex = products.findIndex(p => p.id === cartItem.id);
-                if (productIndex !== -1) {
-                    products[productIndex].stock -= cartItem.qty;
+                if (cartItem.type === 'combo') {
+                    const combo = combos.find(c => c.id === cartItem.comboId);
+                    if (combo) {
+                        combo.items.forEach(ci => {
+                            const productIndex = products.findIndex(p => p.id === ci.productId);
+                            if (productIndex !== -1) {
+                                products[productIndex].stock -= ci.qty * cartItem.qty;
+                            }
+                        });
+                    }
+                } else {
+                    const productIndex = products.findIndex(p => p.id === cartItem.id);
+                    if (productIndex !== -1) {
+                        products[productIndex].stock -= cartItem.qty;
+                    }
                 }
             });
 
@@ -1963,17 +2472,32 @@
             
             let itemsHtml = '';
             saleData.items.forEach(item => {
-                itemsHtml += `
-                    <div class="flex justify-between py-1 border-b border-slate-100 border-dashed">
-                        <div class="flex-1 pr-2">
-                            <div class="truncate">${item.name}</div>
-                            <div class="text-xs text-slate-500">${item.qty} x ${formatMoney(item.price)}</div>
+                if (item.type === 'combo') {
+                    itemsHtml += `
+                        <div class="flex justify-between py-1 border-b border-slate-100 border-dashed">
+                            <div class="flex-1 pr-2">
+                                <div class="truncate font-semibold">${item.name} <span class="text-purple-500 font-bold">[Combo]</span></div>
+                                <div class="text-xs text-slate-500">${item.qty} x ${formatMoney(item.price)}</div>
+                                ${item.comboItems ? item.comboItems.map(ci => `<div class="text-xs text-slate-400 pl-2">- ${ci.name} x${ci.qty}</div>`).join('') : ''}
+                            </div>
+                            <div class="text-right font-medium">
+                                ${formatMoney(item.lineTotal)}
+                            </div>
                         </div>
-                        <div class="text-right font-medium">
-                            ${formatMoney(item.price * item.qty)}
+                    `;
+                } else {
+                    itemsHtml += `
+                        <div class="flex justify-between py-1 border-b border-slate-100 border-dashed">
+                            <div class="flex-1 pr-2">
+                                <div class="truncate">${item.name}</div>
+                                <div class="text-xs text-slate-500">${item.qty} x ${formatMoney(item.price)}</div>
+                            </div>
+                            <div class="text-right font-medium">
+                                ${formatMoney(item.price * item.qty)}
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
             });
 
             content.innerHTML = `
@@ -2090,7 +2614,16 @@
             text += `*Artículos:*\n`;
 
             currentSaleData.items.forEach(item => {
-                text += `- ${item.qty}x ${item.name} (${formatMoney(item.price)}): *${formatMoney(item.qty * item.price)}*\n`;
+                if (item.type === 'combo') {
+                    text += `- ${item.qty}x ${item.name} [Combo] (${formatMoney(item.price)}): *${formatMoney(item.lineTotal)}*\n`;
+                    if (item.comboItems) {
+                        item.comboItems.forEach(ci => {
+                            text += `  - ${ci.name} x${ci.qty}\n`;
+                        });
+                    }
+                } else {
+                    text += `- ${item.qty}x ${item.name} (${formatMoney(item.price)}): *${formatMoney(item.qty * item.price)}*\n`;
+                }
             });
 
             text += `\n*TOTAL: ${formatMoney(currentSaleData.total)}*\n`;
@@ -2276,13 +2809,13 @@
 
         // --- EXPORT / IMPORT PRODUCTOS ---
         function exportInventory() {
-            if (products.length === 0) {
-                showToast('No hay productos para exportar', 'warning');
+            if (products.length === 0 && combos.length === 0) {
+                showToast('No hay datos para exportar', 'warning');
                 return;
             }
 
             let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "SKU,Nombre,Categoría,Precio,Costo,% Utilidad,Stock,Stock Mínimo,Oferta Cant,Oferta Precio\n";
+            csvContent += "Tipo,SKU,Nombre,Categoría,Precio,Costo,% Utilidad,Stock,Stock Mínimo,Oferta Cant,Oferta Precio\n";
 
             products.forEach(p => {
                 const price = p.price.toFixed(2);
@@ -2290,7 +2823,15 @@
                 const profit = p.profitPercent ? p.profitPercent.toFixed(1) : '';
                 const offerQty = p.offerEnabled && p.offerQty > 1 ? p.offerQty : '';
                 const offerPrice = p.offerEnabled && p.offerPrice > 0 ? p.offerPrice.toFixed(2) : '';
-                csvContent += `${p.sku},"${p.name}",${p.category || ''},${price},${cost},${profit},${p.stock},${p.minStock},${offerQty},${offerPrice}\n`;
+                csvContent += `Producto,${p.sku},"${p.name}",${p.category || ''},${price},${cost},${profit},${p.stock},${p.minStock},${offerQty},${offerPrice}\n`;
+            });
+
+            combos.forEach(c => {
+                const itemsStr = c.items.map(i => {
+                    const p = products.find(pr => pr.id === i.productId);
+                    return (p ? p.name : '?') + ' x' + i.qty;
+                }).join(' | ');
+                csvContent += `Combo,${c.code},"${c.name}","${itemsStr}",${c.price.toFixed(2)},,,,,,\n`;
             });
 
             const encodedUri = encodeURI(csvContent);
@@ -2317,34 +2858,54 @@
 
                     if (ext === 'json') {
                         const data = JSON.parse(content);
-                        if (!Array.isArray(data)) throw new Error('Formato JSON inválido');
-                        data.forEach(item => {
-                            if (!item.sku || !item.name) throw new Error('Cada producto debe tener SKU y Nombre');
-                            const existing = products.find(p => p.sku === item.sku);
-                            if (existing) {
-                                Object.assign(existing, {
-                                    name: item.name,
-                                    category: item.category || existing.category,
-                                    costPrice: item.costPrice !== undefined ? parseFloat(item.costPrice) : existing.costPrice,
-                                    profitPercent: item.profitPercent !== undefined ? parseFloat(item.profitPercent) : existing.profitPercent,
-                                    price: parseFloat(item.price) || existing.price,
-                                    stock: parseInt(item.stock) ?? existing.stock,
-                                    minStock: parseInt(item.minStock) ?? existing.minStock
-                                });
-                            } else {
-                                products.push({
-                                    id: generateId(),
-                                    sku: item.sku,
-                                    name: item.name,
-                                    category: item.category || '',
-                                    costPrice: parseFloat(item.costPrice) || 0,
-                                    profitPercent: parseFloat(item.profitPercent) || 0,
-                                    price: parseFloat(item.price) || 0,
-                                    stock: parseInt(item.stock) || 0,
-                                    minStock: parseInt(item.minStock) || 5
-                                });
-                            }
-                        });
+                        if (data.combos && Array.isArray(data.combos)) {
+                            data.combos.forEach(item => {
+                                if (!item.code || !item.name || !item.items) throw new Error('Cada combo debe tener c&oacute;digo, nombre e items');
+                                const existing = combos.find(c => c.code === item.code);
+                                if (existing) {
+                                    existing.name = item.name;
+                                    existing.price = parseFloat(item.price) || existing.price;
+                                    existing.items = item.items;
+                                } else {
+                                    combos.push({
+                                        id: generateComboId(),
+                                        code: item.code,
+                                        name: item.name,
+                                        price: parseFloat(item.price) || 0,
+                                        items: item.items
+                                    });
+                                }
+                            });
+                        }
+                        if (data.products && Array.isArray(data.products)) {
+                            data.products.forEach(item => {
+                                if (!item.sku || !item.name) throw new Error('Cada producto debe tener SKU y Nombre');
+                                const existing = products.find(p => p.sku === item.sku);
+                                if (existing) {
+                                    Object.assign(existing, {
+                                        name: item.name,
+                                        category: item.category || existing.category,
+                                        costPrice: item.costPrice !== undefined ? parseFloat(item.costPrice) : existing.costPrice,
+                                        profitPercent: item.profitPercent !== undefined ? parseFloat(item.profitPercent) : existing.profitPercent,
+                                        price: parseFloat(item.price) || existing.price,
+                                        stock: parseInt(item.stock) ?? existing.stock,
+                                        minStock: parseInt(item.minStock) ?? existing.minStock
+                                    });
+                                } else {
+                                    products.push({
+                                        id: generateId(),
+                                        sku: item.sku,
+                                        name: item.name,
+                                        category: item.category || '',
+                                        costPrice: parseFloat(item.costPrice) || 0,
+                                        profitPercent: parseFloat(item.profitPercent) || 0,
+                                        price: parseFloat(item.price) || 0,
+                                        stock: parseInt(item.stock) || 0,
+                                        minStock: parseInt(item.minStock) || 5
+                                    });
+                                }
+                            });
+                        }
                     } else if (ext === 'csv') {
                         const lines = content.split('\n').filter(line => line.trim());
                         const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
