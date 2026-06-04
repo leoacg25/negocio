@@ -1631,5 +1631,19 @@
       ],
       "exchangeRate": 535.3853
     }
+  ],
+  "combos": [
+    {
+      "id": "combo_mpzue65tfvhdm0bfp",
+      "code": "BO01",
+      "name": "combo",
+      "price": 6,
+      "items": [
+        {
+          "productId": "mpd33wisb1yyid3a64n",
+          "qty": 1
+        }
+      ]
+    }
   ]
 }
