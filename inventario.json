@@ -1632,26 +1632,5 @@
       "exchangeRate": 535.3853
     }
   ],
-  "combos": [
-    {
-      "id": "combo_mpzvhygnr0egrwkj7",
-      "code": "C00001",
-      "name": "Bodys pack",
-      "price": 15,
-      "items": [
-        {
-          "productId": "mpd33wis6sklou95a55",
-          "qty": 1
-        },
-        {
-          "productId": "mpd33wisbdgnmc8f5st",
-          "qty": 1
-        },
-        {
-          "productId": "mpd33wis6dl2eoj4vik",
-          "qty": 1
-        }
-      ]
-    }
-  ]
+  "combos": []
 }
